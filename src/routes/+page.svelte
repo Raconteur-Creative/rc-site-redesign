@@ -464,7 +464,7 @@
 		display: inline-block;
 		width: 8px;
 		height: 18px;
-		background-color: #ff7e21;
+		background-color: #E8650A;
 		margin-left: 4px;
 		animation: blink 1s step-end infinite;
 	}
@@ -479,7 +479,7 @@
 	.typing-container {
 		display: inline-flex;
 		align-items: center;
-		background-color: #ff7e21;
+		background-color: #E8650A;
 		color: #000000;
 		padding: 0 0.2em;
 		transform: rotate(-1deg);

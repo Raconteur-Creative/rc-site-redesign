@@ -11,6 +11,7 @@
 	let roboContainer;
 	let spacecraftContainer;
 	let progressValue = 0;
+	let currentYear = new Date().getFullYear();
 	
 	function type() {
 		const currentWord = words[wordIndex];
@@ -79,8 +80,7 @@
 			});
 		}
 		
-		// Trigger progress animation after a short delay
-		setTimeout(animateProgress, 500);
+		// Progress animation now triggered on hover, not auto
 	});
 </script>
 
@@ -172,9 +172,9 @@
 			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Connected Commerce Council</span>
 			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Data Protocol</span>
 			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Glass Packaging Institute</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Palmetto AgriBusiness Council</span>
+			<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
 			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Punchbowl News</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">The Rainey Center</span>
+			<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
 		</div>
 	</section>
 
@@ -209,7 +209,7 @@
 					<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
 				</div>
 				<!-- Service Card: Anchor (Agentic) -->
-				<div class="md:col-span-4 md:row-span-2 bg-primary-container p-12 flex flex-col justify-between border-l-4 border-secondary overflow-hidden">
+				<div class="md:col-span-4 md:row-span-2 bg-primary-container p-12 flex flex-col justify-between border-l-4 border-secondary overflow-hidden" on:mouseenter={animateProgress}>
 					<div>
 						<div class="mb-8 text-secondary svg-nodes-links">
 							<svg class="w-24 h-24" viewbox="0 0 100 100">
@@ -313,7 +313,7 @@
 				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"They don't just deliver a website; they delivered a technical advantage that our competitors simply can't match."</p>
 				<div class="flex items-center gap-4">
 					<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
-						<img alt="David Forman" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM4UfNX_RJttyis1MpI0sFzFEliSJm2olU3qwircCD8bj2Xqe67WO_ppoUjiKrS0WgyAmZSAOMEF9oeBflPplwOK0Y7H6T9cRFLSiuQ-h3yAnc3ENuMO1oBvN7JsmKKao7elRmcwK_BfCCovuy23gydZlHC4OhRgAvIudEFVJYX6Bccs-JtqFaeO5G7tyFtz7Ktvh0xAGIdKGpQPjgYu9JZgnVzhMDigkUFlJ5W6ReVQ-Mqi9e4o91ls_CU9-2Q9-AWb_e__Dqzanc" />
+						<img alt="David Forman" class="w-full h-full object-cover" src="/davidforman.jpg" />
 					</div>
 					<div>
 						<span class="block font-bold text-primary uppercase tracking-widest text-sm">David Forman</span>
@@ -325,11 +325,11 @@
 				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Their ability to integrate AI into our existing advocacy workflows cut our deployment time in half while increasing impact."</p>
 				<div class="flex items-center gap-4">
 					<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
-						<img alt="Rob Retzlaff" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMD6uDVqEWZx_2waOz7if4MD1xRLWFW3EcYD1MBJn54L9-qEA--F7-pVqjIFdl7MuBVOJLURCMAMOEd821AUkrNDdc7Z2CRL1mVR-JQ9Xodl7QC1AZvETSLLPWarVNw2FZdJdp-0UtRZ02peA1y4KNLLwL3O8fvE1u-KriRkPqu4Aq7sVCSGSTsmDvXIOYofuKsneTa3nG5WbO1FZ0LGCS9IQcoC2z5x9Za-_n0zjyih0Dwsof8Ank2lRR0na0wDK-HPIZ234hlIJ8" />
+						<img alt="Rob Retzlaff" class="w-full h-full object-cover" src="/robretzlaff.jpg" />
 					</div>
 					<div>
 						<span class="block font-bold text-primary uppercase tracking-widest text-sm">Rob Retzlaff</span>
-						<span class="text-outline text-xs uppercase tracking-widest">Executive Director, CCC</span>
+						<span class="text-outline text-xs uppercase tracking-widest">Executive Director, Connected Commerce Council</span>
 					</div>
 				</div>
 			</div>
@@ -400,7 +400,7 @@
 							<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
 							<div>
 								<span class="block text-xs uppercase font-bold tracking-widest text-outline mb-1">HQ</span>
-								<p class="text-xl font-light">Washington, DC — Technical District</p>
+								<p class="text-xl font-light">Washington, DC</p>
 							</div>
 						</div>
 					</div>
@@ -437,7 +437,7 @@
 	<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-full mx-auto">
 		<div class="flex flex-col md:flex-row items-center gap-8 mb-8 md:mb-0">
 			<img alt="Raconteur" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiqc1awPCpSVAsUlHIxSL8LG-GeNfH5gpjtaEkfZ147eU5zRrYTb1ocU3gbkOlKrD6qKnU3zfWnjtiQEZHhOKOOnmpVdgWv2QRA3xnIpHMgc7lmEvXQXmKAgFAwHzymozCUK0rv19W-LOQg4nXu__NvruM9H9wKs2GwLvart3Y6-tuy1if3D04khkRmK9PpWrAHa3I6Zvbe8C4TwB-vx7RNDF3EyH--Q5fbR3vDVmDPpQLOqn85Z37lk4EibW0PS19lSkGhlZPL220" />
-			<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© 2024 Technical Autocracy via AI.</span>
+			<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© {currentYear} Raconteur Creative</span>
 		</div>
 		<div class="flex gap-8">
 			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">LinkedIn</a>
@@ -481,7 +481,7 @@
 		align-items: center;
 		background-color: #E8650A;
 		color: #000000;
-		padding: 0 0.2em;
+		padding: 0 0.182em; /* Reduced height by 9%: 0.2 * 0.91 = 0.182 */
 		transform: rotate(-1deg);
 		white-space: nowrap;
 	}
@@ -537,17 +537,20 @@
 	}
 
 	.checkmark-hover:hover {
-		animation: checkmark-draw 1s ease-in-out infinite;
+		animation: checkmark-draw 1.5s ease-in-out;
 	}
 	@keyframes checkmark-draw {
 		0% { 
-			clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+			opacity: 0;
+			transform: scale(0) rotate(-45deg);
 		}
-		50% { 
-			clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+		60% { 
+			opacity: 1;
+			transform: scale(1.1) rotate(0deg);
 		}
 		100% { 
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+			opacity: 1;
+			transform: scale(1) rotate(0deg);
 		}
 	}
 

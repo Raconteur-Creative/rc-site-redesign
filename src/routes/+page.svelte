@@ -1,11 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
+	import lottie from 'lottie-web';
 	
 	let typingText = '';
-	const words = ["advocacy", "agents", "communications", "campaigns", "strategy"];
+	const words = ["advocacy", "agents", "comms", "campaigns", "strategy"];
 	let wordIndex = 0;
 	let charIndex = 0;
 	let isDeleting = false;
+	
+	let roboContainer;
+	let spacecraftContainer;
+	let progressValue = 0;
 	
 	function type() {
 		const currentWord = words[wordIndex];
@@ -32,8 +37,50 @@
 		setTimeout(type, typeSpeed);
 	}
 	
+	function animateProgress() {
+		const duration = 2000;
+		const startTime = Date.now();
+		
+		function update() {
+			const elapsed = Date.now() - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			progressValue = Math.floor(progress * 100);
+			
+			if (progress < 1) {
+				requestAnimationFrame(update);
+			}
+		}
+		
+		update();
+	}
+	
 	onMount(() => {
 		type();
+		
+		// Load robot Lottie animation
+		if (roboContainer) {
+			lottie.loadAnimation({
+				container: roboContainer,
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: '/robo.json'
+			});
+		}
+		
+		// Load spacecraft Lottie animation
+		if (spacecraftContainer) {
+			lottie.loadAnimation({
+				container: spacecraftContainer,
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: '/spacecraft.json'
+			});
+		}
+		
+		// Trigger progress animation after a short delay
+		setTimeout(animateProgress, 500);
 	});
 </script>
 
@@ -135,29 +182,8 @@
 	<section class="py-32 px-8 md:px-20 bg-surface" id="services">
 		<div class="max-w-7xl mx-auto">
 			<div class="mb-20">
-				<!-- Technical Robot SVG Animation -->
-				<div class="mb-8 w-32 h-32 text-secondary svg-technical-robot">
-					<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-						<g class="body">
-							<rect fill="currentColor" fill-opacity="0.1" height="90" stroke="currentColor" stroke-width="2" width="80" x="60" y="80"></rect>
-							<line stroke="currentColor" stroke-width="2" x1="80" x2="80" y1="170" y2="190"></line>
-							<line stroke="currentColor" stroke-width="2" x1="120" x2="120" y1="170" y2="190"></line>
-						</g>
-						<g class="head">
-							<rect fill="currentColor" fill-opacity="0.2" height="50" stroke="currentColor" stroke-width="2" width="60" x="70" y="30"></rect>
-							<circle class="eye" cx="85" cy="50" fill="currentColor" r="4"></circle>
-							<circle class="eye" cx="115" cy="50" fill="currentColor" r="4"></circle>
-							<rect fill="currentColor" fill-opacity="0.5" height="4" width="20" x="90" y="65"></rect>
-							<path d="M90 20 L110 20 M100 20 L100 30" stroke="currentColor" stroke-width="2"></path>
-						</g>
-						<g class="arm-r">
-							<path d="M140 100 L170 80 L180 60" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
-						</g>
-						<g class="arm-l">
-							<path d="M60 100 L30 120 L20 140" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
-						</g>
-					</svg>
-				</div>
+				<!-- Robot Lottie Animation -->
+				<div class="mb-8 w-32 h-32" bind:this={roboContainer}></div>
 				<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Capabilities</span>
 				<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface max-w-2xl">AI in Every Workflow</h2>
 			</div>
@@ -165,7 +191,7 @@
 				<!-- Service Card: Web -->
 				<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group relative">
 					<div class="flex justify-between items-start mb-12">
-						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:animate-pulse transition-colors">language</span>
+						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary globe-hover transition-colors">language</span>
 						<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
 					</div>
 					<h3 class="font-headline text-3xl text-on-surface mb-4">Web Design &amp; Development</h3>
@@ -201,14 +227,14 @@
 						<p class="text-on-surface-variant text-lg font-light leading-relaxed mb-8">Autonomous systems that manage communication, data synthesis, and stakeholder outreach while you sleep.</p>
 					</div>
 					<div class="space-y-4">
-						<div class="h-1 bg-surface-dim/40 w-full"><div class="h-1 bg-secondary w-2/3"></div></div>
-						<span class="font-mono text-[10px] text-primary uppercase">System efficiency: 94% optimized</span>
+						<div class="h-1 bg-surface-dim/40 w-full"><div class="h-1 bg-secondary transition-all duration-2000" style="width: {progressValue}%"></div></div>
+						<span class="font-mono text-[10px] text-primary uppercase">System efficiency: {progressValue}% optimized</span>
 					</div>
 				</div>
 				<!-- Service Card: Graphic -->
 				<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
 					<div class="flex justify-between items-start mb-12">
-						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:scale-110 transition-transform">draw</span>
+						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary pencil-hover transition-transform">draw</span>
 						<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
 					</div>
 					<h3 class="font-headline text-3xl text-on-surface mb-4">Graphic Design</h3>
@@ -218,7 +244,7 @@
 				<!-- Service Card: Audit -->
 				<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
 					<div class="flex justify-between items-start mb-12">
-						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:rotate-12 transition-transform">search_check</span>
+						<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary checkmark-hover transition-transform">search_check</span>
 						<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
 					</div>
 					<h3 class="font-headline text-3xl text-on-surface mb-4">Digital Audit</h3>
@@ -233,17 +259,8 @@
 	<section class="py-32 px-8 md:px-20 bg-surface-container-lowest" id="agents">
 		<div class="max-w-7xl mx-auto">
 			<div class="mb-20 text-right flex flex-col items-end">
-				<!-- Sleek Spacecraft SVG Animation -->
-				<div class="mb-8 w-40 h-40 text-primary svg-spacecraft">
-					<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-						<g class="ship">
-							<path d="M100 20 C80 60 70 100 70 140 L130 140 C130 100 120 60 100 20Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2"></path>
-							<path d="M70 140 L60 160 L140 160 L130 140" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.5"></path>
-							<circle cx="100" cy="70" fill="currentColor" fill-opacity="0.3" r="8" stroke="currentColor" stroke-width="1"></circle>
-							<rect class="flame" fill="currentColor" height="20" width="16" x="92" y="160"></rect>
-						</g>
-					</svg>
-				</div>
+				<!-- Spacecraft Lottie Animation -->
+				<div class="mb-8 w-40 h-40" bind:this={spacecraftContainer}></div>
 				<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Specialized Capability</span>
 				<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface">AI Agent Design, Deployment, &amp; Management</h2>
 			</div>
@@ -499,6 +516,40 @@
 	/* Kinetic Icons */
 	:global(.pulse-icon) { animation: icon-pulse 2s infinite; }
 	@keyframes icon-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+
+	/* Service Card Icon Animations */
+	.globe-hover:hover {
+		animation: globe-rotate 2s linear infinite;
+	}
+	@keyframes globe-rotate {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	.pencil-hover:hover {
+		animation: pencil-scribble 0.5s ease-in-out infinite;
+	}
+	@keyframes pencil-scribble {
+		0%, 100% { transform: translate(0, 0) rotate(0deg); }
+		25% { transform: translate(-2px, 2px) rotate(-5deg); }
+		50% { transform: translate(2px, -2px) rotate(5deg); }
+		75% { transform: translate(-2px, -2px) rotate(-3deg); }
+	}
+
+	.checkmark-hover:hover {
+		animation: checkmark-draw 1s ease-in-out infinite;
+	}
+	@keyframes checkmark-draw {
+		0% { 
+			clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+		}
+		50% { 
+			clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+		}
+		100% { 
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+		}
+	}
 
 	/* Marquee Animation */
 	@keyframes marquee {

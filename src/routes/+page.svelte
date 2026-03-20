@@ -1,243 +1,501 @@
 <svelte:head>
-	<title>Raconteur Creative | Strategic Communications & AI</title>
-	<meta name="description" content="High-stakes communication at the intersection of storytelling and artificial intelligence." />
+	<title>Raconteur Creative | Technical Autocracy via AI</title>
+	<meta name="description" content="High-stakes communication engine powered by custom agentic workflows" />
 </svelte:head>
 
+<div class="fixed inset-0 noise-bg z-[100]"></div>
 <!-- Navigation -->
-<nav class="glass" style="position: fixed; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(67, 71, 78, 0.15);">
-	<div class="container" style="display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; padding-bottom: 1.5rem;">
-		<div class="label-md" style="color: var(--on-surface);">RACONTEUR CREATIVE</div>
-		<div style="display: flex; gap: 2rem;">
-			<a href="/work" class="label-md" style="color: var(--on-surface-variant); text-decoration: none;">Work</a>
-			<a href="/about" class="label-md" style="color: var(--on-surface-variant); text-decoration: none;">About</a>
-			<a href="/contact" class="btn-primary" style="padding: 0.75rem 1.5rem;">Contact</a>
-		</div>
-	</div>
+<nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-none">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-full mx-auto">
+<div class="flex items-center">
+<img alt="Raconteur Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiqc1awPCpSVAsUlHIxSL8LG-GeNfH5gpjtaEkfZ147eU5zRrYTb1ocU3gbkOlKrD6qKnU3zfWnjtiQEZHhOKOOnmpVdgWv2QRA3xnIpHMgc7lmEvXQXmKAgFAwHzymozCUK0rv19W-LOQg4nXu__NvruM9H9wKs2GwLvart3Y6-tuy1if3D04khkRmK9PpWrAHa3I6Zvbe8C4TwB-vx7RNDF3EyH--Q5fbR3vDVmDPpQLOqn85Z37lk4EibW0PS19lSkGhlZPL220"/>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#services">Services</a>
+<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#agents">AI Agents</a>
+<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#faq">FAQs</a>
+<a class="bg-secondary text-on-secondary px-6 py-2 font-bold hover:opacity-90 transition-all text-xs uppercase tracking-tighter flex items-center gap-2" href="#contact">Contact <span class="material-symbols-outlined text-[14px] pulse-icon">bolt</span></a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
 </nav>
-
-<!-- Hero Section - The Moment -->
-<section style="position: relative; min-height: 100vh; display: flex; align-items: center; background: var(--surface); overflow: hidden; padding-top: 6rem;">
-	<!-- Noise Texture -->
-	<div class="noise-bg"></div>
-	
-	<div class="container" style="position: relative; z-index: 10;">
-		<div style="max-width: 900px;">
-			<!-- Hero Label -->
-			<div class="label-md text-secondary" style="margin-bottom: 2rem;">
-				STRATEGIC COMMUNICATIONS × ARTIFICIAL INTELLIGENCE
-			</div>
-			
-			<!-- The Hero Moment - Massive Typography -->
-			<h1 class="display-lg" style="margin-bottom: 2rem; color: var(--on-surface);">
-				We turn
-				<span style="background: var(--secondary); color: var(--on-secondary); padding: 0 0.2em; transform: rotate(-1deg); display: inline-block;">
-					high-stakes
-				</span>
-				messages into movement.
-			</h1>
-			
-			<!-- Supporting Text -->
-			<p class="body-lg text-on-surface-variant" style="max-width: 600px; margin-bottom: 3rem; line-height: 1.8;">
-				Raconteur Creative operates at the intersection of storytelling and technology. 
-				We craft communications that cut through noise, drive action, and shape outcomes 
-				for organizations that can't afford to be ignored.
-			</p>
-			
-			<!-- CTAs -->
-			<div style="display: flex; gap: 1rem;">
-				<a href="/work" class="btn-primary">View Our Work</a>
-				<a href="/contact" class="btn-secondary">Start a Project</a>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Gradient Accent - Bottom Right -->
-	<div style="position: absolute; bottom: 0; right: 0; width: 50%; height: 50%; background: linear-gradient(135deg, transparent 0%, rgba(30, 58, 95, 0.15) 100%); pointer-events: none;"></div>
+<main>
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent"></div>
+<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-7 z-10">
+<h1 class="font-headline text-6xl md:text-[8rem] leading-[0.85] tracking-tighter text-on-surface mb-8">
+                    Intelligent<br/>
+<span class="typing-container">
+<span id="typing-text">advocacy</span>
+</span>
+</h1>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-xl mb-12 font-light leading-relaxed">
+                    High-stakes communication engine powered by custom agentic workflows. We don't just tell stories; we automate influence.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all">
+                        Start a project <span class="material-symbols-outlined pulse-icon">arrow_forward</span>
+</button>
+<button class="border border-outline-variant/30 text-primary px-10 py-5 text-lg font-bold hover:bg-primary/10 transition-colors">
+                        See AI services
+                    </button>
+</div>
+</div>
+<!-- Terminal Console -->
+<div class="md:col-span-5 relative group">
+<div class="bg-surface-container-lowest p-1 border border-outline-variant/20 shadow-2xl">
+<div class="bg-surface-container-high px-4 py-2 flex items-center gap-2 border-b border-outline-variant/10">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-primary/40"></div>
+</div>
+<span class="text-[10px] font-label text-outline uppercase tracking-widest ml-4">agent_node_v4.0.1</span>
+</div>
+<div class="p-6 font-mono text-sm leading-relaxed min-h-[320px] bg-black/40">
+<div class="text-primary mb-2 opacity-80">&gt; Initializing Intelligence_Core...</div>
+<div class="text-secondary mb-2">&gt; Protocol: ADVOCACY_CAMPAIGN_ALPHA</div>
+<div class="text-on-surface-variant mb-1">... Analyzing sentiment nodes (DC_METRO_AREA)</div>
+<div class="text-on-surface-variant mb-1">... Deploying 12 agentic nodes for outreach</div>
+<div class="text-primary mb-1">... Synthesizing narrative architecture [SUCCESS]</div>
+<div class="text-on-surface-variant mb-4">... Monitoring live sentiment drift: <span class="text-secondary font-bold">+4.2%</span></div>
+<div class="text-on-surface flex items-center">
+<span class="mr-2">&gt;</span> Active monitoring engaged<span class="terminal-cursor"></span>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 -z-10"></div>
+</div>
+</div>
 </section>
-
-<!-- What We Do - Editorial Layout -->
-<section style="background: var(--surface-container-low); padding: 8rem 0;">
-	<div class="container">
-		<!-- Section Number -->
-		<div class="display-md text-secondary" style="opacity: 0.2; margin-bottom: 2rem;">01</div>
-		
-		<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start;">
-			<!-- Left: Heading -->
-			<div>
-				<h2 class="headline-lg" style="color: var(--on-surface);">
-					What We Do
-				</h2>
-			</div>
-			
-			<!-- Right: Content -->
-			<div>
-				<div style="display: grid; gap: 3rem;">
-					<!-- Service 1 -->
-					<div class="context-rail">
-						<h3 class="title-lg" style="margin-bottom: 1rem; color: var(--on-surface);">
-							Strategic Messaging
-						</h3>
-						<p class="body-lg text-on-surface-variant" style="line-height: 1.8;">
-							We distill complex ideas into narratives that resonate with decision-makers, 
-							journalists, and stakeholders who matter.
-						</p>
-					</div>
-					
-					<!-- Service 2 -->
-					<div class="context-rail">
-						<h3 class="title-lg" style="margin-bottom: 1rem; color: var(--on-surface);">
-							AI-Enhanced Content
-						</h3>
-						<p class="body-lg text-on-surface-variant" style="line-height: 1.8;">
-							Leveraging artificial intelligence to scale quality content production while 
-							maintaining the human insight that creates genuine connection.
-						</p>
-					</div>
-					
-					<!-- Service 3 -->
-					<div class="context-rail">
-						<h3 class="title-lg" style="margin-bottom: 1rem; color: var(--on-surface);">
-							Media Relations
-						</h3>
-						<p class="body-lg text-on-surface-variant" style="line-height: 1.8;">
-							Building relationships with journalists and securing coverage that elevates 
-							your organization's reputation and reach.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Client Strip -->
+<section class="py-12 bg-surface-container-lowest overflow-hidden">
+<div class="px-8 md:px-20 mb-6">
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-outline">Trusted by</span>
+</div>
+<div class="flex gap-16 items-center whitespace-nowrap animate-marquee px-8">
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Amazon</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">American Gaming Association</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Connected Commerce Council</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Data Protocol</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Glass Packaging Institute</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Palmetto AgriBusiness Council</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Punchbowl News</span>
+<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">The Rainey Center</span>
+</div>
 </section>
-
-<!-- Case Study Spotlight -->
-<section style="background: var(--surface); padding: 8rem 0;">
-	<div class="container">
-		<!-- Section Number -->
-		<div class="display-md text-secondary" style="opacity: 0.2; margin-bottom: 2rem;">02</div>
-		
-		<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;">
-			<!-- Left: Featured Work -->
-			<div style="background: var(--surface-container-low); padding: 3rem; position: relative;">
-				<!-- Client Label -->
-				<div class="label-md text-secondary" style="margin-bottom: 1.5rem;">
-					FEATURED WORK
-				</div>
-				
-				<h3 class="headline-lg" style="margin-bottom: 2rem; color: var(--on-surface);">
-					Rainey Center for Healing the Whole Family
-				</h3>
-				
-				<p class="body-lg text-on-surface-variant" style="margin-bottom: 2rem; line-height: 1.8;">
-					Comprehensive digital presence and messaging strategy for a family wellness 
-					organization making impact across South Carolina.
-				</p>
-				
-				<a href="/work/rainey" class="label-md text-secondary" style="text-decoration: none;">
-					VIEW CASE STUDY →
-				</a>
-			</div>
-			
-			<!-- Right: Stats -->
-			<div style="display: flex; flex-direction: column; justify-content: center; gap: 3rem;">
-				<div>
-					<div class="display-sm text-secondary" style="margin-bottom: 0.5rem;">150%</div>
-					<div class="body-lg text-on-surface-variant">Increase in web traffic</div>
-				</div>
-				
-				<div>
-					<div class="display-sm text-secondary" style="margin-bottom: 0.5rem;">3x</div>
-					<div class="body-lg text-on-surface-variant">Media mentions year-over-year</div>
-				</div>
-				
-				<div>
-					<div class="display-sm text-secondary" style="margin-bottom: 0.5rem;">12</div>
-					<div class="body-lg text-on-surface-variant">Major publications reached</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Services Section -->
+<section class="py-32 px-8 md:px-20 bg-surface" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<!-- Technical Robot SVG Animation (Inspired by TEXT_2) -->
+<div class="mb-8 w-32 h-32 text-secondary svg-technical-robot">
+<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<g class="body">
+<rect fill="currentColor" fill-opacity="0.1" height="90" stroke="currentColor" stroke-width="2" width="80" x="60" y="80"></rect>
+<line stroke="currentColor" stroke-width="2" x1="80" x2="80" y1="170" y2="190"></line>
+<line stroke="currentColor" stroke-width="2" x1="120" x2="120" y1="170" y2="190"></line>
+</g>
+<g class="head">
+<rect fill="currentColor" fill-opacity="0.2" height="50" stroke="currentColor" stroke-width="2" width="60" x="70" y="30"></rect>
+<circle class="eye" cx="85" cy="50" fill="currentColor" r="4"></circle>
+<circle class="eye" cx="115" cy="50" fill="currentColor" r="4"></circle>
+<rect fill="currentColor" fill-opacity="0.5" height="4" width="20" x="90" y="65"></rect>
+<path d="M90 20 L110 20 M100 20 L100 30" stroke="currentColor" stroke-width="2"></path>
+</g>
+<g class="arm-r">
+<path d="M140 100 L170 80 L180 60" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+</g>
+<g class="arm-l">
+<path d="M60 100 L30 120 L20 140" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+</g>
+</svg>
+</div>
+<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Capabilities</span>
+<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface max-w-2xl">AI in Every Workflow</h2>
+</div>
+<div class="grid md:grid-cols-12 gap-8">
+<!-- Service Card: Web -->
+<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group relative">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:animate-pulse transition-colors">language</span>
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Web Design &amp; Development</h3>
+<p class="text-on-surface-variant font-light mb-8">Performance-first digital destinations optimized for visibility and technical authority.</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+</div>
+<!-- Service Card: Advocacy -->
+<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:animate-bounce transition-colors">campaign</span>
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Advocacy Communications</h3>
+<p class="text-on-surface-variant font-light mb-8">Precision messaging designed to navigate complex regulatory and legislative landscapes.</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+</div>
+<!-- Service Card: Anchor (Agentic) - SVG Animation (Inspired by TEXT_4) -->
+<div class="md:col-span-4 md:row-span-2 bg-primary-container p-12 flex flex-col justify-between border-l-4 border-secondary overflow-hidden">
+<div>
+<div class="mb-8 text-secondary svg-nodes-links">
+<svg class="w-24 h-24" viewbox="0 0 100 100">
+<circle class="node" cx="50" cy="20" fill="currentColor" r="5"></circle>
+<circle class="node" cx="20" cy="50" fill="currentColor" r="5"></circle>
+<circle class="node" cx="80" cy="50" fill="currentColor" r="5"></circle>
+<circle class="node" cx="50" cy="80" fill="currentColor" r="5"></circle>
+<path class="link" d="M50 20 L20 50 L50 80 L80 50 Z" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="link" d="M50 20 L50 80" fill="none" stroke="currentColor" stroke-width="1"></path>
+<path class="link" d="M20 50 L80 50" fill="none" stroke="currentColor" stroke-width="1"></path>
+</svg>
+</div>
+<span class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-8 block">Just Released</span>
+<h3 class="font-headline text-4xl text-on-surface mb-6">Agentic Workflows</h3>
+<p class="text-on-surface-variant text-lg font-light leading-relaxed mb-8">Autonomous systems that manage communication, data synthesis, and stakeholder outreach while you sleep.</p>
+</div>
+<div class="space-y-4">
+<div class="h-1 bg-surface-dim/40 w-full"><div class="h-1 bg-secondary w-2/3"></div></div>
+<span class="font-mono text-[10px] text-primary uppercase">System efficiency: 94% optimized</span>
+</div>
+</div>
+<!-- Service Card: Graphic -->
+<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:scale-110 transition-transform">draw</span>
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Graphic Design</h3>
+<p class="text-on-surface-variant font-light mb-8">Visual identities that command respect through massive contrast and technical rigor.</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+</div>
+<!-- Service Card: Audit -->
+<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
+<div class="flex justify-between items-start mb-12">
+<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:rotate-12 transition-transform">search_check</span>
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Digital Audit</h3>
+<p class="text-on-surface-variant font-light mb-8">Deep-dive technical analysis of your current digital footprint and narrative reach.</p>
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+</div>
+</div>
+</div>
 </section>
-
-<!-- Philosophy / Quote -->
-<section style="background: var(--surface-container-high); padding: 8rem 0;">
-	<div class="container">
-		<div style="max-width: 800px;">
-			<div class="display-md" style="margin-bottom: 2rem; color: var(--on-surface); font-style: italic; line-height: 1.3;">
-				"Every message is an opportunity to shape reality. We help organizations seize that opportunity."
-			</div>
-			<div class="label-md text-on-surface-variant">
-				— PATRICK BOYLAN, FOUNDER
-			</div>
-		</div>
-	</div>
+<!-- AI Agents Deep Dive -->
+<section class="py-32 px-8 md:px-20 bg-surface-container-lowest" id="agents">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-right flex flex-col items-end">
+<!-- Sleek Spacecraft SVG Animation (Inspired by TEXT_3) -->
+<div class="mb-8 w-40 h-40 text-primary svg-spacecraft">
+<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<g class="ship">
+<path d="M100 20 C80 60 70 100 70 140 L130 140 C130 100 120 60 100 20Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2"></path>
+<path d="M70 140 L60 160 L140 160 L130 140" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.5"></path>
+<circle cx="100" cy="70" fill="currentColor" fill-opacity="0.3" r="8" stroke="currentColor" stroke-width="1"></circle>
+<rect class="flame" fill="currentColor" height="20" width="16" x="92" y="160"></rect>
+</g>
+</svg>
+</div>
+<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Specialized Capability</span>
+<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface">AI Agent Design, Deployment, &amp; Management</h2>
+</div>
+<div class="grid md:grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
+<!-- Agent Architecture -->
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
+<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined">architecture</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Architecture</h3>
+<p class="text-on-surface-variant font-light mb-8">Designing the neural logic and data connectivity for specialized communication nodes.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">v.1.0_Llama_3</span>
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Custom_RLHF</span>
+</div>
+</div>
+<!-- Agent Development -->
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
+<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined">code</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Development</h3>
+<p class="text-on-surface-variant font-light mb-8">Writing the custom Python and API integrations to bring autonomous logic into your tech stack.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Active_Coding</span>
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">API_Mesh</span>
+</div>
+</div>
+<!-- Agent Management -->
+<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
+<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Management</h3>
+<p class="text-on-surface-variant font-light mb-8">Ongoing optimization, prompt tuning, and safety monitoring for deployed agents.</p>
+<div class="flex flex-wrap gap-2">
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Human_In_Loop</span>
+<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Drift_Alerts</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- CTA Section -->
-<section style="background: var(--surface); padding: 10rem 0;">
-	<div class="container">
-		<div style="max-width: 700px;">
-			<h2 class="display-md" style="margin-bottom: 2rem; color: var(--on-surface);">
-				Ready to move the needle?
-			</h2>
-			<p class="body-lg text-on-surface-variant" style="margin-bottom: 3rem; line-height: 1.8;">
-				Let's discuss how strategic communications can accelerate your organization's goals.
-			</p>
-			<a href="/contact" class="btn-primary">Start a Conversation</a>
-		</div>
-	</div>
+<!-- Testimonials -->
+<section class="py-32 px-8 md:px-20 bg-surface relative overflow-hidden">
+<div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-outline-variant/10"></div>
+<div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-24">
+<div class="border-l-2 border-secondary pl-12 flex flex-col gap-8">
+<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"They don't just deliver a website; they delivered a technical advantage that our competitors simply can't match."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="David Forman" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM4UfNX_RJttyis1MpI0sFzFEliSJm2olU3qwircCD8bj2Xqe67WO_ppoUjiKrS0WgyAmZSAOMEF9oeBflPplwOK0Y7H6T9cRFLSiuQ-h3yAnc3ENuMO1oBvN7JsmKKao7elRmcwK_BfCCovuy23gydZlHC4OhRgAvIudEFVJYX6Bccs-JtqFaeO5G7tyFtz7Ktvh0xAGIdKGpQPjgYu9JZgnVzhMDigkUFlJ5W6ReVQ-Mqi9e4o91ls_CU9-2Q9-AWb_e__Dqzanc"/>
+</div>
+<div>
+<span class="block font-bold text-primary uppercase tracking-widest text-sm">David Forman</span>
+<span class="text-outline text-xs uppercase tracking-widest">VP Research, American Gaming Association</span>
+</div>
+</div>
+</div>
+<div class="border-l-2 border-primary/30 pl-12 flex flex-col gap-8">
+<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Their ability to integrate AI into our existing advocacy workflows cut our deployment time in half while increasing impact."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
+<img alt="Rob Retzlaff" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMD6uDVqEWZx_2waOz7if4MD1xRLWFW3EcYD1MBJn54L9-qEA--F7-pVqjIFdl7MuBVOJLURCMAMOEd821AUkrNDdc7Z2CRL1mVR-JQ9Xodl7QC1AZvETSLLPWarVNw2FZdJdp-0UtRZ02peA1y4KNLLwL3O8fvE1u-KriRkPqu4Aq7sVCSGSTsmDvXIOYofuKsneTa3nG5WbO1FZ0LGCS9IQcoC2z5x9Za-_n0zjyih0Dwsof8Ank2lRR0na0wDK-HPIZ234hlIJ8"/>
+</div>
+<div>
+<span class="block font-bold text-primary uppercase tracking-widest text-sm">Rob Retzlaff</span>
+<span class="text-outline text-xs uppercase tracking-widest">Executive Director, CCC</span>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<!-- Footer -->
-<footer style="background: var(--surface-container-lowest); padding: 4rem 0; border-top: 1px solid rgba(67, 71, 78, 0.15);">
-	<div class="container">
-		<div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem;">
-			<div>
-				<div class="label-md" style="margin-bottom: 1rem; color: var(--on-surface);">RACONTEUR CREATIVE</div>
-				<p class="body-md text-on-surface-variant" style="line-height: 1.6;">
-					Strategic communications and AI-enhanced content for organizations that demand results.
-				</p>
-			</div>
-			
-			<div>
-				<div class="label-md" style="margin-bottom: 1rem; color: var(--on-surface);">LINKS</div>
-				<div style="display: flex; flex-direction: column; gap: 0.75rem;">
-					<a href="/work" class="body-md text-on-surface-variant" style="text-decoration: none;">Work</a>
-					<a href="/about" class="body-md text-on-surface-variant" style="text-decoration: none;">About</a>
-					<a href="/contact" class="body-md text-on-surface-variant" style="text-decoration: none;">Contact</a>
-				</div>
-			</div>
-			
-			<div>
-				<div class="label-md" style="margin-bottom: 1rem; color: var(--on-surface);">CONTACT</div>
-				<div class="body-md text-on-surface-variant">
-					patrick@raconteurcreative.com
-				</div>
-			</div>
-		</div>
-		
-		<div style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(67, 71, 78, 0.15);">
-			<div class="label-md text-on-surface-variant" style="opacity: 0.5;">
-				© 2026 RACONTEUR CREATIVE. ALL RIGHTS RESERVED.
-			</div>
-		</div>
-	</div>
+<!-- FAQ Section -->
+<section class="py-32 px-8 md:px-20 bg-surface-container-low" id="faq">
+<div class="max-w-5xl mx-auto">
+<div class="mb-20">
+<div class="mb-10 w-20 h-20">
+<svg class="w-full h-full text-secondary" viewbox="0 0 100 100">
+<circle cx="50" cy="50" fill="none" opacity="0.2" r="40" stroke="currentColor" stroke-width="0.5"></circle>
+<circle cx="50" cy="50" fill="none" opacity="0.3" r="30" stroke="currentColor" stroke-width="0.5"></circle>
+<circle class="animate-pulse" cx="50" cy="50" fill="currentColor" opacity="0.8" r="15"></circle>
+<g class="animate-spin" style="transform-origin: 50% 50%; animation-duration: 10s">
+<circle cx="50" cy="10" fill="currentColor" r="3"></circle>
+<circle cx="90" cy="50" fill="currentColor" opacity="0.5" r="3"></circle>
+<circle cx="50" cy="90" fill="currentColor" opacity="0.5" r="3"></circle>
+</g>
+</svg>
+</div>
+<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Common Queries</span>
+<h2 class="font-headline text-5xl text-on-surface">Intelligence &amp; Operations.</h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+                        What is OpenClaw?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">OpenClaw is our proprietary internal framework for orchestrating multi-agent systems. It allows us to build specialized intelligence nodes that work together without the hallucination risks typical of standard LLM deployments.</p>
+</details>
+<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+                        Do you work with non-technical organizations?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Absolutely. Our role is to act as the technical bridge. We translate complex organizational goals into automated advocacy and communication workflows, regardless of your current technical maturity.</p>
+</details>
+<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+                        What is the typical deployment timeline?
+                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+</summary>
+<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Standard digital projects move in 6-8 week sprints. Custom agentic architectures typically require a 12-week runway from initial discovery to live production management.</p>
+</details>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-8 md:px-20 bg-surface border-t border-outline-variant/10" id="contact">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-24">
+<div>
+<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">New Projects</span>
+<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface mb-12">Let's work together.</h2>
+<div class="space-y-10">
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-secondary mt-1">mail</span>
+<div>
+<span class="block text-xs uppercase font-bold tracking-widest text-outline mb-1">Direct Communication</span>
+<a class="text-2xl font-headline hover:text-primary transition-colors" href="mailto:hello@raconteurcreative.com">hello@raconteurcreative.com</a>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
+<div>
+<span class="block text-xs uppercase font-bold tracking-widest text-outline mb-1">HQ</span>
+<p class="text-xl font-light">Washington, DC — Technical District</p>
+</div>
+</div>
+</div>
+</div>
+<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary">
+<div class="grid md:grid-cols-2 gap-8">
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Full Name</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="John Doe" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Organization</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="Inc." type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Email Address</label>
+<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="john@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Project Description</label>
+<textarea class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4"></textarea>
+</div>
+<button class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
+                        Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
+</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest border-t border-outline-variant/15">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-full mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-8 mb-8 md:mb-0">
+<img alt="Raconteur" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiqc1awPCpSVAsUlHIxSL8LG-GeNfH5gpjtaEkfZ147eU5zRrYTb1ocU3gbkOlKrD6qKnU3zfWnjtiQEZHhOKOOnmpVdgWv2QRA3xnIpHMgc7lmEvXQXmKAgFAwHzymozCUK0rv19W-LOQg4nXu__NvruM9H9wKs2GwLvart3Y6-tuy1if3D04khkRmK9PpWrAHa3I6Zvbe8C4TwB-vx7RNDF3EyH--Q5fbR3vDVmDPpQLOqn85Z37lk4EibW0PS19lSkGhlZPL220"/>
+<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© 2024 Technical Autocracy via AI.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">LinkedIn</a>
+<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">X / Twitter</a>
+<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#faq">FAQs</a>
+</div>
+</div>
 </footer>
+<script>
+    const words = ["advocacy", "agents", "communications", "campaigns", "strategy"];
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    const typingText = document.getElementById("typing-text");
 
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typingText.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingText.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 150;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            typeSpeed = 500;
+        }
+
+        setTimeout(type, typeSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+</script>
 <style>
-	/* Responsive adjustments */
-	@media (max-width: 768px) {
-		.display-lg {
-			font-size: 2.5rem;
-		}
-		
-		nav > .container {
-			flex-direction: column;
-			gap: 1rem;
-		}
-		
-		section > .container > div[style*="grid-template-columns"] {
-			grid-template-columns: 1fr !important;
-		}
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        display: flex;
+        width: fit-content;
+        animation: marquee 40s linear infinite;
+    }
+    .animate-marquee:hover {
+        animation-play-state: paused;
+    }
+	
+	/* Additional styles from HTML head */
+	body {
+		font-family: 'Manrope', sans-serif;
+		background-color: #121416;
+		color: #e2e2e5;
+		overflow-x: hidden;
 	}
+	.font-serif-display { font-family: 'DM Serif Display', serif; }
+	.font-inter { font-family: 'Inter', sans-serif; }
+	.material-symbols-outlined {
+		font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+		vertical-align: middle;
+	}
+	.terminal-cursor {
+		display: inline-block;
+		width: 8px;
+		height: 18px;
+		background-color: #ff7e21;
+		margin-left: 4px;
+		animation: blink 1s step-end infinite;
+	}
+	@keyframes blink { 50% { opacity: 0; } }
+	.noise-bg {
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+		opacity: 0.05;
+		pointer-events: none;
+	}
+	
+	/* Typing Headline Animation */
+	.typing-container {
+		display: inline-flex;
+		align-items: center;
+		background-color: #ff7e21;
+		color: #000000;
+		padding: 0 0.2em;
+		transform: rotate(-1deg);
+		white-space: nowrap;
+	}
+	#typing-text::after {
+		content: '';
+		display: inline-block;
+		width: 0.1em;
+		height: 1em;
+		background-color: currentColor;
+		margin-left: 2px;
+		animation: blink 0.7s infinite;
+	}
+
+	/* SVG Animations */
+	.svg-technical-robot .head { animation: head-float 4s ease-in-out infinite; }
+	.svg-technical-robot .eye { animation: eye-blink 5s infinite; }
+	.svg-technical-robot .arm-r { transform-origin: 30% 40%; animation: arm-wave 3s ease-in-out infinite; }
+	@keyframes head-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+	@keyframes eye-blink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0); } }
+	@keyframes arm-wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-15deg); } }
+
+	.svg-nodes-links .node { animation: node-pulse 3s ease-in-out infinite; }
+	.svg-nodes-links .link { stroke-dasharray: 100; stroke-dashoffset: 100; animation: link-draw 6s linear infinite; }
+	@keyframes node-pulse { 0%, 100% { r: 4; opacity: 0.5; } 50% { r: 6; opacity: 1; } }
+	@keyframes link-draw { 0% { stroke-dashoffset: 200; } 100% { stroke-dashoffset: 0; } }
+
+	.svg-spacecraft .flame { animation: flame-flicker 0.1s infinite alternate; }
+	.svg-spacecraft .ship { animation: ship-drift 4s ease-in-out infinite; }
+	@keyframes flame-flicker { from { transform: scaleY(0.8); opacity: 0.7; } to { transform: scaleY(1.2); opacity: 1; } }
+	@keyframes ship-drift { 0%, 100% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(5px, -10px) rotate(2deg); } }
+
+	/* Kinetic Icons */
+	.pulse-icon { animation: icon-pulse 2s infinite; }
+	@keyframes icon-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
 </style>

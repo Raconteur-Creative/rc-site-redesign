@@ -1,11 +1,16 @@
 <script>
 	import { onMount } from 'svelte';
+	import lottie from 'lottie-web';
 	
 	let typingText = '';
-	const words = ["advocacy", "agents", "communications", "campaigns", "strategy"];
+	const words = ["advocacy", "agents", "comms", "campaigns", "strategy"];
 	let wordIndex = 0;
 	let charIndex = 0;
 	let isDeleting = false;
+	
+	let roboContainer;
+	let spacecraftContainer;
+	let progressValue = 0;
 	
 	function type() {
 		const currentWord = words[wordIndex];
@@ -32,8 +37,50 @@
 		setTimeout(type, typeSpeed);
 	}
 	
+	function animateProgress() {
+		const duration = 3000; // 3 seconds
+		const startTime = Date.now();
+		
+		function updateProgress() {
+			const elapsed = Date.now() - startTime;
+			const progress = Math.min(elapsed / duration, 1);
+			progressValue = Math.floor(progress * 100);
+			
+			if (progress < 1) {
+				requestAnimationFrame(updateProgress);
+			}
+		}
+		
+		updateProgress();
+	}
+	
 	onMount(() => {
 		type();
+		
+		// Load robot Lottie animation
+		if (roboContainer) {
+			lottie.loadAnimation({
+				container: roboContainer,
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: '/robo.json'
+			});
+		}
+		
+		// Load spacecraft Lottie animation
+		if (spacecraftContainer) {
+			lottie.loadAnimation({
+				container: spacecraftContainer,
+				renderer: 'svg',
+				loop: true,
+				autoplay: true,
+				path: '/spacecraft.json'
+			});
+		}
+		
+		// Trigger progress animation after a short delay
+		setTimeout(animateProgress, 1000);
 	});
 </script>
 
@@ -98,328 +145,308 @@
 <div class="p-6 font-mono text-sm leading-relaxed min-h-[320px] bg-black/40">
 <div class="text-primary mb-2 opacity-80">&gt; Initializing Intelligence_Core...</div>
 <div class="text-secondary mb-2">&gt; Protocol: ADVOCACY_CAMPAIGN_ALPHA</div>
-<div class="text-on-surface-variant mb-1">... Analyzing sentiment nodes (DC_METRO_AREA)</div>
-<div class="text-on-surface-variant mb-1">... Deploying 12 agentic nodes for outreach</div>
-<div class="text-primary mb-1">... Synthesizing narrative architecture [SUCCESS]</div>
-<div class="text-on-surface-variant mb-4">... Monitoring live sentiment drift: <span class="text-secondary font-bold">+4.2%</span></div>
-<div class="text-on-surface flex items-center">
-<span class="mr-2">&gt;</span> Active monitoring engaged<span class="terminal-cursor"></span>
+<div class="text-tertiary mb-4">&gt; Agent_Mode: <span class="text-on-surface animate-pulse">ACTIVE</span></div>
+<div class="text-on-surface/60 text-xs leading-loose">
+━━━━━━━━━━━━━━━━━━━━━━━━━<br/>
+<span class="text-primary">●</span> Sentiment_Tracker <span class="text-secondary">✓</span><br/>
+<span class="text-primary">●</span> Message_Generator <span class="text-secondary">✓</span><br/>
+<span class="text-primary">●</span> Influence_Predictor <span class="text-secondary">✓</span><br/>
+━━━━━━━━━━━━━━━━━━━━━━━━━<br/>
+<br/>
+<span class="text-tertiary">Audience_Segments:</span> 4.2M mapped<br/>
+<span class="text-tertiary">Tactical_Output:</span> 120 briefs/hour<br/>
+<span class="text-tertiary">System_Efficiency:</span> <span class="text-secondary font-bold">{progressValue}% Optimized</span>
+</div>
+<div class="flex gap-2 mt-6">
+<div class="h-1.5 flex-1 bg-surface-container overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary via-tertiary to-primary transition-all duration-300 ease-out" style="width: {progressValue}%"></div>
+</div>
+</div>
+<div class="text-[10px] text-outline mt-4 font-label tracking-widest">&gt; REAL-TIME OPTIMIZATION IN PROGRESS...</div>
 </div>
 </div>
 </div>
-<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 -z-10"></div>
-</div>
-</div>
-</section>
-<!-- Client Strip -->
-<section class="py-12 bg-surface-container-lowest overflow-hidden">
-<div class="px-8 md:px-20 mb-6">
-<span class="font-label text-[10px] uppercase tracking-[0.3em] text-outline">Trusted by</span>
-</div>
-<div class="flex gap-16 items-center whitespace-nowrap animate-marquee px-8">
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Amazon</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">American Gaming Association</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Connected Commerce Council</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Data Protocol</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Glass Packaging Institute</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Palmetto AgriBusiness Council</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Punchbowl News</span>
-<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">The Rainey Center</span>
 </div>
 </section>
+
 <!-- Services Section -->
-<section class="py-32 px-8 md:px-20 bg-surface" id="services">
-<div class="max-w-7xl mx-auto">
+<section id="services" class="py-32 px-8 md:px-20 bg-surface-container-low relative">
+<div class="absolute left-0 top-0 h-full w-1/3 bg-gradient-to-r from-primary-container/5 to-transparent"></div>
+<div class="max-w-7xl mx-auto relative z-10">
 <div class="mb-20">
-<!-- Technical Robot SVG Animation (Inspired by TEXT_2) -->
-<div class="mb-8 w-32 h-32 text-secondary svg-technical-robot">
-<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<g class="body">
-<rect fill="currentColor" fill-opacity="0.1" height="90" stroke="currentColor" stroke-width="2" width="80" x="60" y="80"></rect>
-<line stroke="currentColor" stroke-width="2" x1="80" x2="80" y1="170" y2="190"></line>
-<line stroke="currentColor" stroke-width="2" x1="120" x2="120" y1="170" y2="190"></line>
-</g>
-<g class="head">
-<rect fill="currentColor" fill-opacity="0.2" height="50" stroke="currentColor" stroke-width="2" width="60" x="70" y="30"></rect>
-<circle class="eye" cx="85" cy="50" fill="currentColor" r="4"></circle>
-<circle class="eye" cx="115" cy="50" fill="currentColor" r="4"></circle>
-<rect fill="currentColor" fill-opacity="0.5" height="4" width="20" x="90" y="65"></rect>
-<path d="M90 20 L110 20 M100 20 L100 30" stroke="currentColor" stroke-width="2"></path>
-</g>
-<g class="arm-r">
-<path d="M140 100 L170 80 L180 60" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
-</g>
-<g class="arm-l">
-<path d="M60 100 L30 120 L20 140" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
-</g>
-</svg>
+<p class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-4">━━ 01 SERVICES</p>
+<h2 class="font-headline text-5xl md:text-7xl tracking-tighter text-on-surface leading-[0.9]">
+                    Precision-built<br/>for power.
+                </h2>
 </div>
-<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Capabilities</span>
-<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface max-w-2xl">AI in Every Workflow</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Web Design & Development -->
+<div class="bg-surface-container p-8 border-l-2 border-secondary hover:border-primary transition-colors">
+<div class="mb-6 w-14 h-14 bg-primary-container flex items-center justify-center globe-hover">
+<span class="material-symbols-outlined text-primary text-3xl">language</span>
 </div>
-<div class="grid md:grid-cols-12 gap-8">
-<!-- Service Card: Web -->
-<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group relative">
-<div class="flex justify-between items-start mb-12">
-<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:animate-pulse transition-colors">language</span>
-<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+<h3 class="font-headline text-2xl text-on-surface mb-4">Web Design & Development</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                        Corporate sites, campaign portals, and digital infrastructure that performs under pressure. Fast, secure, scalable.
+                    </p>
 </div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Web Design &amp; Development</h3>
-<p class="text-on-surface-variant font-light mb-8">Performance-first digital destinations optimized for visibility and technical authority.</p>
-<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+<!-- Graphic Design -->
+<div class="bg-surface-container p-8 border-l-2 border-tertiary hover:border-primary transition-colors">
+<div class="mb-6 w-14 h-14 bg-tertiary-container flex items-center justify-center pencil-hover">
+<span class="material-symbols-outlined text-tertiary text-3xl">edit</span>
 </div>
-<!-- Service Card: Advocacy -->
-<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
-<div class="flex justify-between items-start mb-12">
-<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:animate-bounce transition-colors">campaign</span>
-<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
+<h3 class="font-headline text-2xl text-on-surface mb-4">Graphic Design</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                        Brand systems, slide decks, reports, and visuals that command attention in boardrooms and broadcasts.
+                    </p>
 </div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Advocacy Communications</h3>
-<p class="text-on-surface-variant font-light mb-8">Precision messaging designed to navigate complex regulatory and legislative landscapes.</p>
-<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+<!-- Digital Audit & Consulting -->
+<div class="bg-surface-container p-8 border-l-2 border-secondary hover:border-primary transition-colors">
+<div class="mb-6 w-14 h-14 bg-secondary-container flex items-center justify-center checkmark-hover">
+<span class="material-symbols-outlined text-secondary text-3xl">check_circle</span>
 </div>
-<!-- Service Card: Anchor (Agentic) - SVG Animation (Inspired by TEXT_4) -->
-<div class="md:col-span-4 md:row-span-2 bg-primary-container p-12 flex flex-col justify-between border-l-4 border-secondary overflow-hidden">
-<div>
-<div class="mb-8 text-secondary svg-nodes-links">
-<svg class="w-24 h-24" viewbox="0 0 100 100">
-<circle class="node" cx="50" cy="20" fill="currentColor" r="5"></circle>
-<circle class="node" cx="20" cy="50" fill="currentColor" r="5"></circle>
-<circle class="node" cx="80" cy="50" fill="currentColor" r="5"></circle>
-<circle class="node" cx="50" cy="80" fill="currentColor" r="5"></circle>
-<path class="link" d="M50 20 L20 50 L50 80 L80 50 Z" fill="none" stroke="currentColor" stroke-width="1"></path>
-<path class="link" d="M50 20 L50 80" fill="none" stroke="currentColor" stroke-width="1"></path>
-<path class="link" d="M20 50 L80 50" fill="none" stroke="currentColor" stroke-width="1"></path>
-</svg>
-</div>
-<span class="font-label text-[10px] uppercase tracking-[0.3em] text-secondary mb-8 block">Just Released</span>
-<h3 class="font-headline text-4xl text-on-surface mb-6">Agentic Workflows</h3>
-<p class="text-on-surface-variant text-lg font-light leading-relaxed mb-8">Autonomous systems that manage communication, data synthesis, and stakeholder outreach while you sleep.</p>
-</div>
-<div class="space-y-4">
-<div class="h-1 bg-surface-dim/40 w-full"><div class="h-1 bg-secondary w-2/3"></div></div>
-<span class="font-mono text-[10px] text-primary uppercase">System efficiency: 94% optimized</span>
-</div>
-</div>
-<!-- Service Card: Graphic -->
-<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
-<div class="flex justify-between items-start mb-12">
-<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:scale-110 transition-transform">draw</span>
-<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
-</div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Graphic Design</h3>
-<p class="text-on-surface-variant font-light mb-8">Visual identities that command respect through massive contrast and technical rigor.</p>
-<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
-</div>
-<!-- Service Card: Audit -->
-<div class="md:col-span-4 bg-surface-container-low p-10 hover:bg-surface-container-high transition-colors group">
-<div class="flex justify-between items-start mb-12">
-<span class="material-symbols-outlined text-4xl text-secondary/30 group-hover:text-secondary group-hover:rotate-12 transition-transform">search_check</span>
-<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 font-bold uppercase tracking-widest">AI Enhanced</span>
-</div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Digital Audit</h3>
-<p class="text-on-surface-variant font-light mb-8">Deep-dive technical analysis of your current digital footprint and narrative reach.</p>
-<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-2">arrow_right_alt</span>
+<h3 class="font-headline text-2xl text-on-surface mb-4">Digital Audit & Consulting</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                        We analyze your digital footprint, identify gaps, and recommend optimizations that drive measurable outcomes.
+                    </p>
 </div>
 </div>
 </div>
 </section>
-<!-- AI Agents Deep Dive -->
-<section class="py-32 px-8 md:px-20 bg-surface-container-lowest" id="agents">
-<div class="max-w-7xl mx-auto">
-<div class="mb-20 text-right flex flex-col items-end">
-<!-- Sleek Spacecraft SVG Animation (Inspired by TEXT_3) -->
-<div class="mb-8 w-40 h-40 text-primary svg-spacecraft">
-<svg fill="none" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-<g class="ship">
-<path d="M100 20 C80 60 70 100 70 140 L130 140 C130 100 120 60 100 20Z" fill="currentColor" fill-opacity="0.1" stroke="currentColor" stroke-width="2"></path>
-<path d="M70 140 L60 160 L140 160 L130 140" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1.5"></path>
-<circle cx="100" cy="70" fill="currentColor" fill-opacity="0.3" r="8" stroke="currentColor" stroke-width="1"></circle>
-<rect class="flame" fill="currentColor" height="20" width="16" x="92" y="160"></rect>
-</g>
-</svg>
+
+<!-- AI Agents Section -->
+<section id="agents" class="py-32 px-8 md:px-20 bg-surface relative overflow-hidden">
+<div class="absolute right-0 top-1/4 w-96 h-96 bg-gradient-radial from-primary/5 via-transparent to-transparent"></div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="mb-20 text-right">
+<p class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-4">━━ 02 AGENTIC AI</p>
+<h2 class="font-headline text-5xl md:text-7xl tracking-tighter text-on-surface leading-[0.9]">
+                    Intelligence at<br/>industrial scale.
+                </h2>
 </div>
-<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Specialized Capability</span>
-<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface">AI Agent Design, Deployment, &amp; Management</h2>
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<div class="mb-12">
+<h3 class="font-headline text-3xl text-on-surface mb-4">Content Generation</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                            AI agents that draft op-eds, generate talking points, and produce strategic messaging at speed. Human-reviewed, machine-accelerated.
+                        </p>
 </div>
-<div class="grid md:grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
-<!-- Agent Architecture -->
-<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
-<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-<span class="material-symbols-outlined">architecture</span>
+<div class="mb-12">
+<h3 class="font-headline text-3xl text-on-surface mb-4">Research & Intelligence</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                            Automated monitoring of news, policy developments, and sentiment trends. Real-time briefs delivered to your inbox.
+                        </p>
 </div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Architecture</h3>
-<p class="text-on-surface-variant font-light mb-8">Designing the neural logic and data connectivity for specialized communication nodes.</p>
-<div class="flex flex-wrap gap-2">
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">v.1.0_Llama_3</span>
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Custom_RLHF</span>
-</div>
-</div>
-<!-- Agent Development -->
-<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
-<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-<span class="material-symbols-outlined">code</span>
-</div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Development</h3>
-<p class="text-on-surface-variant font-light mb-8">Writing the custom Python and API integrations to bring autonomous logic into your tech stack.</p>
-<div class="flex flex-wrap gap-2">
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Active_Coding</span>
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">API_Mesh</span>
+<div>
+<h3 class="font-headline text-3xl text-on-surface mb-4">Workflow Automation</h3>
+<p class="text-on-surface-variant leading-relaxed font-body">
+                            From email triage to report generation, we build custom agents that handle repetitive tasks so you can focus on strategy.
+                        </p>
 </div>
 </div>
-<!-- Agent Management -->
-<div class="bg-surface p-12 group hover:bg-surface-container-low transition-all">
-<div class="w-12 h-12 border border-secondary/30 flex items-center justify-center mb-8 text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all">
-<span class="material-symbols-outlined">settings_suggest</span>
-</div>
-<h3 class="font-headline text-3xl text-on-surface mb-4">Management</h3>
-<p class="text-on-surface-variant font-light mb-8">Ongoing optimization, prompt tuning, and safety monitoring for deployed agents.</p>
-<div class="flex flex-wrap gap-2">
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Human_In_Loop</span>
-<span class="text-[9px] font-bold tracking-widest uppercase py-1 px-3 border border-outline-variant/30 text-outline">Drift_Alerts</span>
-</div>
+<div class="order-1 md:order-2 relative">
+<div class="w-full max-w-md mx-auto" bind:this={roboContainer}></div>
 </div>
 </div>
 </div>
 </section>
-<!-- Testimonials -->
-<section class="py-32 px-8 md:px-20 bg-surface relative overflow-hidden">
-<div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-outline-variant/10"></div>
-<div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-24">
-<div class="border-l-2 border-secondary pl-12 flex flex-col gap-8">
-<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"They don't just deliver a website; they delivered a technical advantage that our competitors simply can't match."</p>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
-<img alt="David Forman" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM4UfNX_RJttyis1MpI0sFzFEliSJm2olU3qwircCD8bj2Xqe67WO_ppoUjiKrS0WgyAmZSAOMEF9oeBflPplwOK0Y7H6T9cRFLSiuQ-h3yAnc3ENuMO1oBvN7JsmKKao7elRmcwK_BfCCovuy23gydZlHC4OhRgAvIudEFVJYX6Bccs-JtqFaeO5G7tyFtz7Ktvh0xAGIdKGpQPjgYu9JZgnVzhMDigkUFlJ5W6ReVQ-Mqi9e4o91ls_CU9-2Q9-AWb_e__Dqzanc"/>
+
+<!-- Spot Callout -->
+<section class="py-24 px-8 md:px-20 bg-primary-container relative">
+<div class="absolute inset-0 opacity-5">
+<div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent via-primary to-transparent"></div>
 </div>
-<div>
-<span class="block font-bold text-primary uppercase tracking-widest text-sm">David Forman</span>
-<span class="text-outline text-xs uppercase tracking-widest">VP Research, American Gaming Association</span>
-</div>
-</div>
-</div>
-<div class="border-l-2 border-primary/30 pl-12 flex flex-col gap-8">
-<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Their ability to integrate AI into our existing advocacy workflows cut our deployment time in half while increasing impact."</p>
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
-<img alt="Rob Retzlaff" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMD6uDVqEWZx_2waOz7if4MD1xRLWFW3EcYD1MBJn54L9-qEA--F7-pVqjIFdl7MuBVOJLURCMAMOEd821AUkrNDdc7Z2CRL1mVR-JQ9Xodl7QC1AZvETSLLPWarVNw2FZdJdp-0UtRZ02peA1y4KNLLwL3O8fvE1u-KriRkPqu4Aq7sVCSGSTsmDvXIOYofuKsneTa3nG5WbO1FZ0LGCS9IQcoC2z5x9Za-_n0zjyih0Dwsof8Ank2lRR0na0wDK-HPIZ234hlIJ8"/>
-</div>
-<div>
-<span class="block font-bold text-primary uppercase tracking-widest text-sm">Rob Retzlaff</span>
-<span class="text-outline text-xs uppercase tracking-widest">Executive Director, CCC</span>
-</div>
-</div>
-</div>
+<div class="max-w-4xl mx-auto text-center relative z-10">
+<p class="font-label text-xs uppercase tracking-[0.3em] text-on-primary-container/60 mb-6">CASE STUDY</p>
+<h2 class="font-headline text-4xl md:text-6xl text-on-primary-container leading-tight mb-6">
+                South Carolina coalition ran 400+ events with zero scheduling errors.
+            </h2>
+<p class="text-on-primary-container/80 text-lg font-body mb-8 max-w-2xl mx-auto">
+                Custom event automation system, Webflow integration, real-time updates across 12 partner organizations.
+            </p>
+<button class="border-2 border-on-primary-container text-on-primary-container px-8 py-4 font-bold hover:bg-on-primary-container hover:text-primary-container transition-all">
+                View full case study
+            </button>
 </div>
 </section>
-<!-- FAQ Section -->
-<section class="py-32 px-8 md:px-20 bg-surface-container-low" id="faq">
+
+<!-- Client Marquee -->
+<section class="py-16 bg-surface-container-low overflow-hidden">
+<div class="flex gap-16 items-center whitespace-nowrap animate-marquee px-8">
+<span class="text-outline font-label text-sm tracking-[0.2em]">Rainey Center</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Palmetto AgriBusiness Council</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">SPEAK4</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Sarah E. Hunt</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Connected Commerce Council</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Rainey Center</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Palmetto AgriBusiness Council</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">SPEAK4</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Sarah E. Hunt</span>
+<span class="text-outline font-label text-sm tracking-[0.2em]">Connected Commerce Council</span>
+</div>
+</section>
+
+<!-- Testimonial -->
+<section class="py-32 px-8 md:px-20 bg-surface">
 <div class="max-w-5xl mx-auto">
-<div class="mb-20">
-<div class="mb-10 w-20 h-20">
-<svg class="w-full h-full text-secondary" viewbox="0 0 100 100">
-<circle cx="50" cy="50" fill="none" opacity="0.2" r="40" stroke="currentColor" stroke-width="0.5"></circle>
-<circle cx="50" cy="50" fill="none" opacity="0.3" r="30" stroke="currentColor" stroke-width="0.5"></circle>
-<circle class="animate-pulse" cx="50" cy="50" fill="currentColor" opacity="0.8" r="15"></circle>
-<g class="animate-spin" style="transform-origin: 50% 50%; animation-duration: 10s">
-<circle cx="50" cy="10" fill="currentColor" r="3"></circle>
-<circle cx="90" cy="50" fill="currentColor" opacity="0.5" r="3"></circle>
-<circle cx="50" cy="90" fill="currentColor" opacity="0.5" r="3"></circle>
-</g>
-</svg>
+<div class="mb-12">
+<div class="w-16 h-1 bg-secondary mb-8"></div>
+<p class="font-headline text-3xl md:text-5xl text-on-surface leading-snug italic">
+                    "We needed more than a vendor. We needed a partner who understood the stakes. Raconteur delivered precision, speed, and results."
+                </p>
 </div>
-<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Common Queries</span>
-<h2 class="font-headline text-5xl text-on-surface">Intelligence &amp; Operations.</h2>
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl">person</span>
 </div>
-<div class="space-y-4">
-<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
-<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
-                        What is OpenClaw?
-                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+<div>
+<p class="text-on-surface font-bold font-body text-lg">Executive Director</p>
+<p class="text-outline font-label text-xs uppercase tracking-widest">South Carolina Coalition</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section id="faq" class="py-32 px-8 md:px-20 bg-surface-container-low">
+<div class="max-w-4xl mx-auto">
+<div class="mb-16">
+<p class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-4">━━ 03 QUESTIONS</p>
+<h2 class="font-headline text-5xl md:text-7xl tracking-tighter text-on-surface">
+                    Everything you need<br/>to know.
+                </h2>
+</div>
+<div class="space-y-6">
+<details class="group bg-surface p-6 border-l-2 border-outline-variant">
+<summary class="cursor-pointer font-headline text-2xl text-on-surface list-none flex justify-between items-center">
+                        What makes Raconteur different?
+                        <span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">OpenClaw is our proprietary internal framework for orchestrating multi-agent systems. It allows us to build specialized intelligence nodes that work together without the hallucination risks typical of standard LLM deployments.</p>
+<p class="mt-4 text-on-surface-variant font-body leading-relaxed">
+                        We combine traditional communications expertise with custom AI workflows. You're not just getting strategy or design—you're getting systems that scale.
+                    </p>
 </details>
-<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
-<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
-                        Do you work with non-technical organizations?
-                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+<details class="group bg-surface p-6 border-l-2 border-outline-variant">
+<summary class="cursor-pointer font-headline text-2xl text-on-surface list-none flex justify-between items-center">
+                        Can you work with existing vendors?
+                        <span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Absolutely. Our role is to act as the technical bridge. We translate complex organizational goals into automated advocacy and communication workflows, regardless of your current technical maturity.</p>
+<p class="mt-4 text-on-surface-variant font-body leading-relaxed">
+                        Absolutely. We integrate with your current team and tools. Think of us as your force multiplier, not a replacement.
+                    </p>
 </details>
-<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
-<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
-                        What is the typical deployment timeline?
-                        <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+<details class="group bg-surface p-6 border-l-2 border-outline-variant">
+<summary class="cursor-pointer font-headline text-2xl text-on-surface list-none flex justify-between items-center">
+                        What industries do you serve?
+                        <span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">expand_more</span>
 </summary>
-<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Standard digital projects move in 6-8 week sprints. Custom agentic architectures typically require a 12-week runway from initial discovery to live production management.</p>
+<p class="mt-4 text-on-surface-variant font-body leading-relaxed">
+                        We specialize in advocacy, public affairs, and high-stakes campaigns—where communication isn't just persuasion, it's power.
+                    </p>
+</details>
+<details class="group bg-surface p-6 border-l-2 border-outline-variant">
+<summary class="cursor-pointer font-headline text-2xl text-on-surface list-none flex justify-between items-center">
+                        How do AI agents work?
+                        <span class="material-symbols-outlined text-outline group-open:rotate-180 transition-transform">
+expand_more</span>
+</summary>
+<p class="mt-4 text-on-surface-variant font-body leading-relaxed">
+                        We build custom agents tailored to your workflow—content drafting, research monitoring, email automation. They run in the background, supervised by humans, optimized for your goals.
+                    </p>
 </details>
 </div>
 </div>
 </section>
+
 <!-- Contact Section -->
-<section class="py-32 px-8 md:px-20 bg-surface border-t border-outline-variant/10" id="contact">
-<div class="max-w-7xl mx-auto">
-<div class="grid md:grid-cols-2 gap-24">
-<div>
-<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">New Projects</span>
-<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface mb-12">Let's work together.</h2>
-<div class="space-y-10">
-<div class="flex items-start gap-6">
-<span class="material-symbols-outlined text-secondary mt-1">mail</span>
-<div>
-<span class="block text-xs uppercase font-bold tracking-widest text-outline mb-1">Direct Communication</span>
-<a class="text-2xl font-headline hover:text-primary transition-colors" href="mailto:hello@raconteurcreative.com">hello@raconteurcreative.com</a>
+<section id="contact" class="py-32 px-8 md:px-20 bg-surface relative overflow-hidden">
+<div class="absolute right-0 bottom-0 w-1/2 h-full">
+<div class="w-full max-w-lg ml-auto" bind:this={spacecraftContainer}></div>
 </div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="max-w-2xl">
+<p class="font-label text-xs uppercase tracking-[0.3em] text-outline mb-4">━━ GET IN TOUCH</p>
+<h2 class="font-headline text-5xl md:text-7xl tracking-tighter text-on-surface leading-[0.9] mb-8">
+                    Let's build<br/>something precise.
+                </h2>
+<p class="text-on-surface-variant text-xl font-body leading-relaxed mb-12">
+                    Whether you need a campaign site, an AI research agent, or a complete digital overhaul—reach out. We'll respond within 24 hours.
+                </p>
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<input 
+                            type="text" 
+                            placeholder="Your name" 
+                            class="bg-surface-container border-b-2 border-outline-variant px-4 py-4 text-on-surface placeholder-outline focus:border-primary outline-none transition-colors font-body"
+                        />
+<input 
+                            type="email" 
+                            placeholder="Email address" 
+                            class="bg-surface-container border-b-2 border-outline-variant px-4 py-4 text-on-surface placeholder-outline focus:border-primary outline-none transition-colors font-body"
+                        />
 </div>
-<div class="flex items-start gap-6">
-<span class="material-symbols-outlined text-secondary mt-1">location_on</span>
-<div>
-<span class="block text-xs uppercase font-bold tracking-widest text-outline mb-1">HQ</span>
-<p class="text-xl font-light">Washington, DC — Technical District</p>
-</div>
-</div>
-</div>
-</div>
-<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary">
-<div class="grid md:grid-cols-2 gap-8">
-<div class="flex flex-col gap-2">
-<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Full Name</label>
-<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="John Doe" type="text"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Organization</label>
-<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="Inc." type="text"/>
-</div>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Email Address</label>
-<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="john@example.com" type="email"/>
-</div>
-<div class="flex flex-col gap-2">
-<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Project Description</label>
-<textarea class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4"></textarea>
-</div>
-<button class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
-                        Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
+<input 
+                        type="text" 
+                        placeholder="Organization" 
+                        class="w-full bg-surface-container border-b-2 border-outline-variant px-4 py-4 text-on-surface placeholder-outline focus:border-primary outline-none transition-colors font-body"
+                    />
+<textarea 
+                        placeholder="Tell us about your project" 
+                        rows="5" 
+                        class="w-full bg-surface-container border-b-2 border-outline-variant px-4 py-4 text-on-surface placeholder-outline focus:border-primary outline-none transition-colors font-body resize-none"
+                    ></textarea>
+<button 
+                        type="submit" 
+                        class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all w-full md:w-auto justify-center"
+                    >
+                        Send message <span class="material-symbols-outlined pulse-icon">send</span>
 </button>
 </form>
 </div>
 </div>
 </section>
-</main>
-<footer class="bg-surface-container-lowest border-t border-outline-variant/15">
-<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-full mx-auto">
-<div class="flex flex-col md:flex-row items-center gap-8 mb-8 md:mb-0">
-<img alt="Raconteur" class="h-6 w-auto" src="https://lh3.googleusercontent.com/aida/ADBb0uiqc1awPCpSVAsUlHIxSL8LG-GeNfH5gpjtaEkfZ147eU5zRrYTb1ocU3gbkOlKrD6qKnU3zfWnjtiQEZHhOKOOnmpVdgWv2QRA3xnIpHMgc7lmEvXQXmKAgFAwHzymozCUK0rv19W-LOQg4nXu__NvruM9H9wKs2GwLvart3Y6-tuy1if3D04khkRmK9PpWrAHa3I6Zvbe8C4TwB-vx7RNDF3EyH--Q5fbR3vDVmDPpQLOqn85Z37lk4EibW0PS19lSkGhlZPL220"/>
-<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© 2024 Technical Autocracy via AI.</span>
+
+<!-- Footer -->
+<footer class="bg-surface-container-highest py-16 px-8 md:px-20 border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div class="md:col-span-2">
+<img alt="Raconteur Logo" class="h-8 w-auto mb-6" src="https://lh3.googleusercontent.com/aida/ADBb0uiqc1awPCpSVAsUlHIxSL8LG-GeNfH5gpjtaEkfZ147eU5zRrYTb1ocU3gbkOlKrD6qKnU3zfWnjtiQEZHhOKOOnmpVdgWv2QRA3xnIpHMgc7lmEvXQXmKAgFAwHzymozCUK0rv19W-LOQg4nXu__NvruM9H9wKs2GwLvart3Y6-tuy1if3D04khkRmK9PpWrAHa3I6Zvbe8C4TwB-vx7RNDF3EyH--Q5fbR3vDVmDPpQLOqn85Z37lk4EibW0PS19lSkGhlZPL220"/>
+<p class="text-outline text-sm font-body leading-relaxed max-w-sm">
+                        Strategic communications and AI-powered workflows for organizations that play to win.
+                    </p>
 </div>
-<div class="flex gap-8">
-<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">LinkedIn</a>
-<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">X / Twitter</a>
-<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#faq">FAQs</a>
+<div>
+<h4 class="text-on-surface font-bold mb-4 font-label text-xs uppercase tracking-widest">Services</h4>
+<ul class="space-y-2">
+<li><a href="#services" class="text-outline hover:text-primary transition-colors font-body text-sm">Web Design</a></li>
+<li><a href="#services" class="text-outline hover:text-primary transition-colors font-body text-sm">Graphic Design</a></li>
+<li><a href="#services" class="text-outline hover:text-primary transition-colors font-body text-sm">AI Agents</a></li>
+<li><a href="#services" class="text-outline hover:text-primary transition-colors font-body text-sm">Consulting</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-4 font-label text-xs uppercase tracking-widest">Connect</h4>
+<ul class="space-y-2">
+<li><a href="#contact" class="text-outline hover:text-primary transition-colors font-body text-sm">Contact</a></li>
+<li><a href="#" class="text-outline hover:text-primary transition-colors font-body text-sm">LinkedIn</a></li>
+<li><a href="#" class="text-outline hover:text-primary transition-colors font-body text-sm">X / Twitter</a></li>
+<li><a href="#faq" class="text-outline hover:text-primary transition-colors font-body text-sm">FAQs</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-outline text-xs font-label tracking-widest">© 2026 RACONTEUR CREATIVE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-6">
+<a href="#" class="text-outline hover:text-primary transition-colors font-label text-xs uppercase tracking-widest">Privacy</a>
+<a href="#" class="text-outline hover:text-primary transition-colors font-label text-xs uppercase tracking-widest">Terms</a>
+</div>
 </div>
 </div>
 </footer>
+</main>
+
 <style>
     @keyframes marquee {
         0% { transform: translateX(0); }
@@ -433,74 +460,70 @@
     .animate-marquee:hover {
         animation-play-state: paused;
     }
-	
-	/* Additional styles from HTML head */
-	body {
-		font-family: 'Manrope', sans-serif;
-		background-color: #121416;
-		color: #e2e2e5;
-		overflow-x: hidden;
-	}
-	.font-serif-display { font-family: 'DM Serif Display', serif; }
-	.font-inter { font-family: 'Inter', sans-serif; }
-	.material-symbols-outlined {
-		font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-		vertical-align: middle;
-	}
-	.terminal-cursor {
-		display: inline-block;
-		width: 8px;
-		height: 18px;
-		background-color: #ff7e21;
-		margin-left: 4px;
-		animation: blink 1s step-end infinite;
-	}
-	@keyframes blink { 50% { opacity: 0; } }
-	.noise-bg {
-		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-		opacity: 0.05;
-		pointer-events: none;
-	}
-	
-	/* Typing Headline Animation */
-	.typing-container {
-		display: inline-flex;
-		align-items: center;
-		background-color: #ff7e21;
-		color: #000000;
-		padding: 0 0.2em;
-		transform: rotate(-1deg);
-		white-space: nowrap;
-	}
-	#typing-text::after {
-		content: '';
-		display: inline-block;
-		width: 0.1em;
-		height: 1em;
-		background-color: currentColor;
-		margin-left: 2px;
-		animation: blink 0.7s infinite;
-	}
 
-	/* SVG Animations */
-	.svg-technical-robot .head { animation: head-float 4s ease-in-out infinite; }
-	.svg-technical-robot .eye { animation: eye-blink 5s infinite; }
-	.svg-technical-robot .arm-r { transform-origin: 30% 40%; animation: arm-wave 3s ease-in-out infinite; }
-	@keyframes head-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-	@keyframes eye-blink { 0%, 90%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0); } }
-	@keyframes arm-wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-15deg); } }
+    .typing-container {
+        display: inline-block;
+        border-right: 3px solid var(--secondary);
+        padding-right: 8px;
+        animation: blink 1s step-end infinite;
+    }
 
-	.svg-nodes-links .node { animation: node-pulse 3s ease-in-out infinite; }
-	.svg-nodes-links .link { stroke-dasharray: 100; stroke-dashoffset: 100; animation: link-draw 6s linear infinite; }
-	@keyframes node-pulse { 0%, 100% { r: 4; opacity: 0.5; } 50% { r: 6; opacity: 1; } }
-	@keyframes link-draw { 0% { stroke-dashoffset: 200; } 100% { stroke-dashoffset: 0; } }
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
 
-	.svg-spacecraft .flame { animation: flame-flicker 0.1s infinite alternate; }
-	.svg-spacecraft .ship { animation: ship-drift 4s ease-in-out infinite; }
-	@keyframes flame-flicker { from { transform: scaleY(0.8); opacity: 0.7; } to { transform: scaleY(1.2); opacity: 1; } }
-	@keyframes ship-drift { 0%, 100% { transform: translate(0,0) rotate(0deg); } 50% { transform: translate(5px, -10px) rotate(2deg); } }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.6; }
+    }
 
-	/* Kinetic Icons */
-	.pulse-icon { animation: icon-pulse 2s infinite; }
-	@keyframes icon-pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+    .pulse-icon {
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .noise-bg {
+        background-image: 
+            radial-gradient(circle at 20% 50%, rgba(173, 200, 245, 0.03) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(255, 182, 146, 0.02) 0%, transparent 50%);
+        pointer-events: none;
+    }
+    
+    /* Globe rotation on hover */
+    .globe-hover:hover .material-symbols-outlined {
+        animation: rotateGlobe 2s ease-in-out infinite;
+    }
+    
+    @keyframes rotateGlobe {
+        0%, 100% { transform: rotateY(0deg); }
+        50% { transform: rotateY(180deg); }
+    }
+    
+    /* Pencil scribbling motion on hover */
+    .pencil-hover:hover .material-symbols-outlined {
+        animation: scribble 0.6s ease-in-out infinite;
+    }
+    
+    @keyframes scribble {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(2px, -2px) rotate(5deg); }
+        50% { transform: translate(-2px, 2px) rotate(-5deg); }
+        75% { transform: translate(2px, 1px) rotate(3deg); }
+    }
+    
+    /* Checkmark building/writing animation on hover */
+    .checkmark-hover:hover .material-symbols-outlined {
+        animation: drawCheck 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes drawCheck {
+        0% { 
+            clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+        }
+        50% {
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+        }
+        100% {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
 </style>

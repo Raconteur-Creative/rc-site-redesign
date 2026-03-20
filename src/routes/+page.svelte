@@ -1,3 +1,42 @@
+<script>
+	import { onMount } from 'svelte';
+	
+	let typingText = '';
+	const words = ["advocacy", "agents", "communications", "campaigns", "strategy"];
+	let wordIndex = 0;
+	let charIndex = 0;
+	let isDeleting = false;
+	
+	function type() {
+		const currentWord = words[wordIndex];
+		
+		if (isDeleting) {
+			typingText = currentWord.substring(0, charIndex - 1);
+			charIndex--;
+		} else {
+			typingText = currentWord.substring(0, charIndex + 1);
+			charIndex++;
+		}
+
+		let typeSpeed = isDeleting ? 50 : 150;
+
+		if (!isDeleting && charIndex === currentWord.length) {
+			typeSpeed = 2000;
+			isDeleting = true;
+		} else if (isDeleting && charIndex === 0) {
+			isDeleting = false;
+			wordIndex = (wordIndex + 1) % words.length;
+			typeSpeed = 500;
+		}
+
+		setTimeout(type, typeSpeed);
+	}
+	
+	onMount(() => {
+		type();
+	});
+</script>
+
 <svelte:head>
 	<title>Raconteur Creative | Technical Autocracy via AI</title>
 	<meta name="description" content="High-stakes communication engine powered by custom agentic workflows" />
@@ -30,7 +69,7 @@
 <h1 class="font-headline text-6xl md:text-[8rem] leading-[0.85] tracking-tighter text-on-surface mb-8">
                     Intelligent<br/>
 <span class="typing-container">
-<span id="typing-text">advocacy</span>
+<span>{typingText}</span>
 </span>
 </h1>
 <p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-xl mb-12 font-light leading-relaxed">
@@ -381,40 +420,6 @@
 </div>
 </div>
 </footer>
-<script>
-    const words = ["advocacy", "agents", "communications", "campaigns", "strategy"];
-    let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingText = document.getElementById("typing-text");
-
-    function type() {
-        const currentWord = words[wordIndex];
-        
-        if (isDeleting) {
-            typingText.textContent = currentWord.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingText.textContent = currentWord.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let typeSpeed = isDeleting ? 50 : 150;
-
-        if (!isDeleting && charIndex === currentWord.length) {
-            typeSpeed = 2000;
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-            typeSpeed = 500;
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    document.addEventListener("DOMContentLoaded", type);
-</script>
 <style>
     @keyframes marquee {
         0% { transform: translateX(0); }

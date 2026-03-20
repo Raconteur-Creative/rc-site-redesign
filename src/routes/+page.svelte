@@ -167,13 +167,13 @@
 			<span class="font-label text-[10px] uppercase tracking-[0.3em] text-outline">Trusted by</span>
 		</div>
 		<div class="flex gap-16 items-center whitespace-nowrap animate-marquee px-8">
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Amazon</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">American Gaming Association</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Connected Commerce Council</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Data Protocol</span>
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Glass Packaging Institute</span>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#amazon"></use></svg>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#aga"></use></svg>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#connected-commerce-council"></use></svg>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#data-protocol"></use></svg>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#glass-packaging-institute"></use></svg>
 			<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
-			<span class="text-2xl font-headline text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default">Punchbowl News</span>
+			<svg class="h-8 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#punchbowl"></use></svg>
 			<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-8 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
 		</div>
 	</section>

@@ -13,6 +13,30 @@
 	let progressValue = 0;
 	let currentYear = new Date().getFullYear();
 	let meshGradient;
+	let formSubmitted = false;
+	let formError = false;
+	
+	async function handleSubmit(event) {
+		event.preventDefault();
+		const form = event.target;
+		const formData = new FormData(form);
+		
+		try {
+			const response = await fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				body: formData
+			});
+			
+			if (response.ok) {
+				formSubmitted = true;
+				form.reset();
+			} else {
+				formError = true;
+			}
+		} catch (error) {
+			formError = true;
+		}
+	}
 	
 	// Terminal typing animation
 	let terminalLines = [];
@@ -554,7 +578,7 @@
 						</div>
 					</div>
 				</div>
-				<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary" action="https://api.web3forms.com/submit" method="POST">
+				<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary" on:submit={handleSubmit}>
 					<input type="hidden" name="access_key" value="bfe5ad13-a1eb-4db6-a4a1-e138d349ee6c" />
 					<input type="hidden" name="subject" value="New Contact Form Submission from Raconteur Creative" />
 					<input type="hidden" name="from_name" value="Raconteur Creative Website" />
@@ -576,9 +600,23 @@
 						<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Project Description</label>
 						<textarea name="message" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4" required></textarea>
 					</div>
-					<button class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
-						Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
-					</button>
+					{#if formSubmitted}
+						<div class="w-full bg-primary/20 border border-primary/30 text-primary py-8 px-6 text-center">
+							<span class="material-symbols-outlined text-5xl mb-4 block">check_circle</span>
+							<p class="font-bold text-xl mb-2">Message Sent Successfully!</p>
+							<p class="text-sm">We'll be in touch soon.</p>
+						</div>
+					{:else if formError}
+						<div class="w-full bg-red-500/20 border border-red-500/30 text-red-400 py-8 px-6 text-center">
+							<span class="material-symbols-outlined text-5xl mb-4 block">error</span>
+							<p class="font-bold text-xl mb-2">Something went wrong</p>
+							<p class="text-sm">Please email us directly at hello@raconteurcreative.com</p>
+						</div>
+					{:else}
+						<button type="submit" class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
+							Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
+						</button>
+					{/if}
 				</form>
 			</div>
 		</div>

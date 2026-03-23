@@ -169,25 +169,25 @@
 		<div class="flex gap-16 items-center">
 			<!-- First set of logos -->
 			<div class="flex gap-16 items-center whitespace-nowrap animate-marquee">
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#amazon"></use></svg>
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#aga"></use></svg>
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#connected-commerce-council"></use></svg>
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#data-protocol"></use></svg>
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#glass-packaging-institute"></use></svg>
-				<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#punchbowl"></use></svg>
-				<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-12 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#amazon"></use></svg>
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#aga"></use></svg>
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#connected-commerce-council"></use></svg>
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#data-protocol"></use></svg>
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#glass-packaging-institute"></use></svg>
+				<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-10 opacity-40 hover:opacity-70 transition-opacity cursor-default brightness-0 invert" />
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#punchbowl"></use></svg>
+				<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-12 opacity-40 hover:opacity-70 transition-opacity cursor-default brightness-0 invert" />
 			</div>
 			<!-- Duplicate set for seamless loop -->
 			<div class="flex gap-16 items-center whitespace-nowrap animate-marquee" aria-hidden="true">
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#amazon"></use></svg>
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#aga"></use></svg>
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#connected-commerce-council"></use></svg>
-				<svg class="h-10 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#data-protocol"></use></svg>
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#glass-packaging-institute"></use></svg>
-				<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-10 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
-				<svg class="h-12 w-auto fill-current text-on-surface/40 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default"><use href="/client-logos.svg#punchbowl"></use></svg>
-				<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-12 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all cursor-default" />
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#amazon"></use></svg>
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#aga"></use></svg>
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#connected-commerce-council"></use></svg>
+				<svg class="h-10 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#data-protocol"></use></svg>
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#glass-packaging-institute"></use></svg>
+				<img src="/pabc-logo.svg" alt="Palmetto AgriBusiness Council" class="h-10 opacity-40 hover:opacity-70 transition-opacity cursor-default brightness-0 invert" />
+				<svg class="h-12 w-auto fill-white opacity-40 hover:opacity-70 transition-opacity cursor-default"><use href="/client-logos.svg#punchbowl"></use></svg>
+				<img src="/rainey-logo.svg" alt="The Rainey Center" class="h-12 opacity-40 hover:opacity-70 transition-opacity cursor-default brightness-0 invert" />
 			</div>
 		</div>
 	</section>

@@ -12,6 +12,7 @@
 	let spacecraftContainer;
 	let progressValue = 0;
 	let currentYear = new Date().getFullYear();
+	let meshGradient;
 	
 	// Terminal typing animation
 	let terminalLines = [];
@@ -114,6 +115,58 @@
 		}
 		
 		// Progress animation now triggered on hover, not auto
+		
+		// Animate mesh gradient
+		if (meshGradient) {
+			let positions = [
+				{ x1: 20, y1: 30, x2: 80, y2: 70, x3: 40, y3: 80, x4: 90, y4: 20 },
+				{ x1: 70, y1: 60, x2: 30, y2: 20, x3: 80, y3: 40, x4: 10, y4: 70 },
+				{ x1: 50, y1: 80, x2: 60, y2: 30, x3: 20, y3: 50, x4: 85, y4: 65 },
+				{ x1: 30, y1: 40, x2: 75, y2: 75, x3: 55, y3: 25, x4: 15, y4: 85 }
+			];
+			let currentIndex = 0;
+			
+			function animateMesh() {
+				const nextIndex = (currentIndex + 1) % positions.length;
+				const current = positions[currentIndex];
+				const next = positions[nextIndex];
+				const duration = 5000;
+				const startTime = Date.now();
+				
+				function updateGradient() {
+					const elapsed = Date.now() - startTime;
+					const progress = Math.min(elapsed / duration, 1);
+					const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+					
+					const x1 = current.x1 + (next.x1 - current.x1) * eased;
+					const y1 = current.y1 + (next.y1 - current.y1) * eased;
+					const x2 = current.x2 + (next.x2 - current.x2) * eased;
+					const y2 = current.y2 + (next.y2 - current.y2) * eased;
+					const x3 = current.x3 + (next.x3 - current.x3) * eased;
+					const y3 = current.y3 + (next.y3 - current.y3) * eased;
+					const x4 = current.x4 + (next.x4 - current.x4) * eased;
+					const y4 = current.y4 + (next.y4 - current.y4) * eased;
+					
+					meshGradient.style.background = `
+						radial-gradient(circle 400px at ${x1}% ${y1}%, rgba(173, 200, 245, 0.25), transparent),
+						radial-gradient(circle 350px at ${x2}% ${y2}%, rgba(232, 101, 10, 0.2), transparent),
+						radial-gradient(circle 300px at ${x3}% ${y3}%, rgba(255, 255, 255, 0.12), transparent),
+						radial-gradient(circle 380px at ${x4}% ${y4}%, rgba(173, 200, 245, 0.18), transparent)
+					`;
+					
+					if (progress < 1) {
+						requestAnimationFrame(updateGradient);
+					} else {
+						currentIndex = nextIndex;
+						setTimeout(animateMesh, 1000);
+					}
+				}
+				
+				updateGradient();
+			}
+			
+			animateMesh();
+		}
 	});
 </script>
 
@@ -145,7 +198,7 @@
 <main>
 	<!-- Hero Section -->
 	<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
-		<div class="mesh-gradient"></div>
+		<div class="mesh-gradient" bind:this={meshGradient}></div>
 		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent z-0"></div>
 		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
 			<div class="md:col-span-7 z-10">
@@ -671,40 +724,7 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: 
-			radial-gradient(circle 400px at var(--x1, 20%) var(--y1, 30%), rgba(173, 200, 245, 0.25), transparent),
-			radial-gradient(circle 350px at var(--x2, 80%) var(--y2, 70%), rgba(232, 101, 10, 0.2), transparent),
-			radial-gradient(circle 300px at var(--x3, 40%) var(--y3, 80%), rgba(255, 255, 255, 0.12), transparent),
-			radial-gradient(circle 380px at var(--x4, 90%) var(--y4, 20%), rgba(173, 200, 245, 0.18), transparent);
-		animation: meshMove 20s ease-in-out infinite;
 		pointer-events: none;
 		z-index: 1;
-	}
-
-	@keyframes meshMove {
-		0%, 100% {
-			--x1: 20%; --y1: 30%;
-			--x2: 80%; --y2: 70%;
-			--x3: 40%; --y3: 80%;
-			--x4: 90%; --y4: 20%;
-		}
-		25% {
-			--x1: 70%; --y1: 60%;
-			--x2: 30%; --y2: 20%;
-			--x3: 80%; --y3: 40%;
-			--x4: 10%; --y4: 70%;
-		}
-		50% {
-			--x1: 50%; --y1: 80%;
-			--x2: 60%; --y2: 30%;
-			--x3: 20%; --y3: 50%;
-			--x4: 85%; --y4: 65%;
-		}
-		75% {
-			--x1: 30%; --y1: 40%;
-			--x2: 75%; --y2: 75%;
-			--x3: 55%; --y3: 25%;
-			--x4: 15%; --y4: 85%;
-		}
 	}
 </style>

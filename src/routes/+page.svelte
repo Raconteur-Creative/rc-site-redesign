@@ -95,7 +95,7 @@
 <nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-none">
 	<div class="flex justify-between items-center w-full px-8 py-6 max-w-full mx-auto">
 		<div class="flex items-center">
-			<img alt="Raconteur Logo" class="h-10 w-auto" src="/raconteur-logo.jpg" />
+			<img alt="Raconteur Logo" class="h-10 w-auto" src="/raconteur-logo.svg" />
 		</div>
 		<div class="hidden md:flex items-center gap-10">
 			<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#services">Services</a>
@@ -436,7 +436,7 @@
 <footer class="bg-surface-container-lowest border-t border-outline-variant/15">
 	<div class="flex flex-col md:flex-row justify-between items-center px-12 py-10 w-full max-w-full mx-auto">
 		<div class="flex flex-col md:flex-row items-center gap-8 mb-8 md:mb-0">
-			<img alt="Raconteur" class="h-6 w-auto" src="/raconteur-logo.jpg" />
+			<img alt="Raconteur" class="h-6 w-auto" src="/raconteur-logo.svg" />
 			<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© {currentYear} Raconteur Creative</span>
 		</div>
 		<div class="flex gap-8">

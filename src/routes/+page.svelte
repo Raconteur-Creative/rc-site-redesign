@@ -145,14 +145,14 @@
 						<span class="text-[10px] font-label text-outline uppercase tracking-widest ml-4">agent_node_v4.0.1</span>
 					</div>
 					<div class="p-6 font-mono text-sm leading-relaxed min-h-[320px] bg-black/40">
-						<div class="text-primary mb-2 opacity-80">&gt; Initializing Intelligence_Core...</div>
-						<div class="text-secondary mb-2">&gt; Protocol: ADVOCACY_CAMPAIGN_ALPHA</div>
-						<div class="text-on-surface-variant mb-1">... Analyzing sentiment nodes (DC_METRO_AREA)</div>
-						<div class="text-on-surface-variant mb-1">... Deploying 12 agentic nodes for outreach</div>
-						<div class="text-primary mb-1">... Synthesizing narrative architecture [SUCCESS]</div>
-						<div class="text-on-surface-variant mb-4">... Monitoring live sentiment drift: <span class="text-secondary font-bold">+4.2%</span></div>
+						<div class="text-primary mb-2 opacity-80">&gt; Initializing contact_intelligence...</div>
+						<div class="text-secondary mb-2">&gt; Protocol: STAKEHOLDER_MAPPING_ALPHA</div>
+						<div class="text-on-surface-variant mb-1">... Enriching contact database (247 records)</div>
+						<div class="text-on-surface-variant mb-1">... Matching legislators to priority issues</div>
+						<div class="text-primary mb-1">... Flagging 14 high-value targets [READY]</div>
+						<div class="text-on-surface-variant mb-4">... Drafting personalized outreach queue</div>
 						<div class="text-on-surface flex items-center">
-							<span class="mr-2">&gt;</span> Active monitoring engaged<span class="terminal-cursor"></span>
+							<span class="mr-2">&gt;</span> Awaiting deployment<span class="terminal-cursor"></span>
 						</div>
 					</div>
 				</div>

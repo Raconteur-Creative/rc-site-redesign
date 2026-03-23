@@ -355,7 +355,7 @@
 		<div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-outline-variant/10"></div>
 		<div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-24">
 			<div class="border-l-2 border-secondary pl-12 flex flex-col gap-8">
-				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"They don't just deliver a website; they delivered a technical advantage that our competitors simply can't match."</p>
+				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Raconteur Creative has been the perfect creative partner. They work tirelessly to bring our vision to life, on time and on budget."</p>
 				<div class="flex items-center gap-4">
 					<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
 						<img alt="David Forman" class="w-full h-full object-cover" src="/davidforman.jpg" />
@@ -367,7 +367,7 @@
 				</div>
 			</div>
 			<div class="border-l-2 border-primary/30 pl-12 flex flex-col gap-8">
-				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Their ability to integrate AI into our existing advocacy workflows cut our deployment time in half while increasing impact."</p>
+				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Working with the Raconteur Creative team over the last few years has been a terrific experience. Patrick and his team are top-notch professionals that are not only talented and highly creative but are mission-driven and take a client-first/consultative approach with their work. I cannot speak highly enough about them and would recommend them to anyone looking to elevate their marketing presence."</p>
 				<div class="flex items-center gap-4">
 					<div class="w-12 h-12 rounded-full bg-surface-container-high border border-outline-variant/20 overflow-hidden">
 						<img alt="Rob Retzlaff" class="w-full h-full object-cover" src="/robretzlaff.jpg" />
@@ -534,8 +534,9 @@
 			<span class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline">© {currentYear} Raconteur Creative</span>
 		</div>
 		<div class="flex gap-8">
-			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">LinkedIn</a>
-			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#">X / Twitter</a>
+			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="https://www.linkedin.com/company/raconteur-creative/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="https://twitter.com/raconteurtweets" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="https://www.facebook.com/raconteurcreative/" target="_blank" rel="noopener noreferrer">Facebook</a>
 			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#faq">FAQs</a>
 		</div>
 	</div>
@@ -575,7 +576,7 @@
 		align-items: center;
 		background-color: #E8650A;
 		color: #000000;
-		padding: 0 0.182em; /* Reduced height by 9%: 0.2 * 0.91 = 0.182 */
+		padding: 0 0.164em; /* Reduced height by ~18%: 0.2 * 0.82 = 0.164 */
 		transform: rotate(-1deg);
 		white-space: nowrap;
 	}
@@ -620,7 +621,7 @@
 		to { transform: rotate(360deg); }
 	}
 
-	.pencil-hover:hover {
+	.group:hover .pencil-hover {
 		animation: pencil-scribble 0.5s ease-in-out infinite;
 	}
 	@keyframes pencil-scribble {
@@ -630,7 +631,7 @@
 		75% { transform: translate(-2px, -2px) rotate(-3deg); }
 	}
 
-	.checkmark-hover:hover {
+	.group:hover .checkmark-hover {
 		animation: checkmark-draw 1.5s ease-in-out;
 	}
 	@keyframes checkmark-draw {

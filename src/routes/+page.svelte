@@ -671,68 +671,87 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		background: 
+			radial-gradient(circle 400px at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 100%),
+			radial-gradient(circle 350px at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 100%),
+			radial-gradient(circle 300px at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 100%),
+			radial-gradient(circle 380px at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 100%),
+			radial-gradient(circle 320px at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 100%),
+			radial-gradient(circle 290px at 50% 40%, rgba(173, 200, 245, 0.15) 0px, transparent 100%),
+			radial-gradient(circle 330px at 70% 50%, rgba(232, 101, 10, 0.12) 0px, transparent 100%),
+			radial-gradient(circle 280px at 30% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 100%);
+		background-size: 100% 100%;
+		animation: spotlightDrift 25s ease-in-out infinite;
 		pointer-events: none;
 		z-index: 1;
 	}
-	
-	.mesh-gradient::before,
-	.mesh-gradient::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-	
-	.mesh-gradient::before {
-		background: 
-			radial-gradient(circle at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 25%),
-			radial-gradient(circle at 70% 50%, rgba(232, 101, 10, 0.12) 0px, transparent 22%),
-			radial-gradient(circle at 50% 40%, rgba(173, 200, 245, 0.15) 0px, transparent 20%),
-			radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 18%);
-		animation: spotlight1 15s ease-in-out infinite;
-	}
-	
-	.mesh-gradient::after {
-		background: 
-			radial-gradient(circle at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 25%),
-			radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 20%),
-			radial-gradient(circle at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 25%),
-			radial-gradient(circle at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 25%);
-		animation: spotlight2 18s ease-in-out infinite;
-	}
 
-	@keyframes spotlight1 {
+	@keyframes spotlightDrift {
 		0%, 100% {
-			transform: translate(0, 0);
+			background-position: 
+				20% 30%,
+				80% 70%,
+				40% 80%,
+				90% 20%,
+				10% 60%,
+				50% 40%,
+				70% 50%,
+				30% 20%;
 		}
-		25% {
-			transform: translate(30px, -20px);
+		16% {
+			background-position: 
+				35% 25%,
+				70% 75%,
+				30% 70%,
+				85% 30%,
+				15% 55%,
+				60% 35%,
+				65% 60%,
+				25% 30%;
+		}
+		33% {
+			background-position: 
+				50% 35%,
+				65% 65%,
+				45% 75%,
+				75% 25%,
+				20% 65%,
+				45% 50%,
+				75% 45%,
+				35% 25%;
 		}
 		50% {
-			transform: translate(-25px, 35px);
+			background-position: 
+				60% 50%,
+				50% 80%,
+				35% 60%,
+				80% 40%,
+				25% 50%,
+				55% 60%,
+				60% 55%,
+				40% 35%;
 		}
-		75% {
-			transform: translate(15px, -30px);
+		66% {
+			background-position: 
+				45% 60%,
+				60% 60%,
+				50% 70%,
+				70% 35%,
+				15% 70%,
+				40% 45%,
+				80% 50%,
+				30% 40%;
 		}
-	}
-	
-	@keyframes spotlight2 {
-		0%, 100% {
-			transform: translate(0, 0);
-		}
-		20% {
-			transform: translate(-40px, 25px);
-		}
-		40% {
-			transform: translate(35px, -15px);
-		}
-		60% {
-			transform: translate(-20px, -35px);
-		}
-		80% {
-			transform: translate(30px, 20px);
+		83% {
+			background-position: 
+				30% 45%,
+				75% 65%,
+				35% 75%,
+				85% 25%,
+				10% 65%,
+				50% 35%,
+				70% 55%,
+				25% 25%;
 		}
 	}
 </style>

@@ -195,8 +195,34 @@
 </script>
 
 <svelte:head>
-	<title>Raconteur Creative | Technical Autocracy via AI</title>
-	<meta name="description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do." />
+	<title>Raconteur Creative | Intelligent Advocacy & AI-Powered Communication</title>
+	<meta name="description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do, so your people can focus on what matters most." />
+	
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://raconteurcreative.com/" />
+	<meta property="og:title" content="Raconteur Creative | Intelligent Advocacy & AI-Powered Communication" />
+	<meta property="og:description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do." />
+	<meta property="og:image" content="https://raconteurcreative.com/og-image.jpg" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	
+	<!-- Twitter -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:url" content="https://raconteurcreative.com/" />
+	<meta name="twitter:title" content="Raconteur Creative | Intelligent Advocacy & AI-Powered Communication" />
+	<meta name="twitter:description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do." />
+	<meta name="twitter:image" content="https://raconteurcreative.com/og-image.jpg" />
+	<meta name="twitter:site" content="@raconteurtweets" />
+	<meta name="twitter:creator" content="@raconteurtweets" />
+	
+	<!-- Additional SEO -->
+	<meta name="keywords" content="AI advocacy, custom AI agents, OpenClaw, intelligent communication, agentic workflows, government affairs, stakeholder mapping, DC advocacy, political communication" />
+	<meta name="author" content="Raconteur Creative" />
+	<link rel="canonical" href="https://raconteurcreative.com/" />
+	
+	<!-- Favicon -->
+	<link rel="icon" type="image/svg+xml" href="/raconteur-logo.svg" />
 </svelte:head>
 
 <div class="fixed inset-0 noise-bg z-[100]"></div>

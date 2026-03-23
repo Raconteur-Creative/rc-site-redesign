@@ -181,7 +181,9 @@
 <nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-none">
 	<div class="flex justify-between items-center w-full px-8 py-6 max-w-full mx-auto">
 		<div class="flex items-center">
-			<img alt="Raconteur Logo" class="h-10 w-auto" src="/raconteur-logo.svg" />
+			<a href="/">
+				<img alt="Raconteur Logo" class="h-10 w-auto" src="/raconteur-logo.svg" />
+			</a>
 		</div>
 		<div class="hidden md:flex items-center gap-10">
 			<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#services">Services</a>

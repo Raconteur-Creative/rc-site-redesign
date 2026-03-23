@@ -293,7 +293,7 @@
 
 <main role="main">
 	<!-- Hero Section -->
-	<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
+	<section class="min-h-screen flex flex-col justify-center pt-32 md:pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
 		<div class="mesh-gradient" bind:this={meshGradient}></div>
 		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent z-0"></div>
 		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center relative z-10">

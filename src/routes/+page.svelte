@@ -145,6 +145,7 @@
 <main>
 	<!-- Hero Section -->
 	<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
+		<div class="mesh-gradient"></div>
 		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent"></div>
 		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
 			<div class="md:col-span-7 z-10">
@@ -661,5 +662,39 @@
 	}
 	:global(.animate-marquee:hover) {
 		animation-play-state: paused;
+	}
+
+	/* Animated Mesh Gradient */
+	.mesh-gradient {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: 
+			radial-gradient(at 20% 30%, rgba(173, 200, 245, 0.15) 0px, transparent 50%),
+			radial-gradient(at 80% 70%, rgba(232, 101, 10, 0.12) 0px, transparent 50%),
+			radial-gradient(at 40% 80%, rgba(255, 255, 255, 0.08) 0px, transparent 50%),
+			radial-gradient(at 90% 20%, rgba(173, 200, 245, 0.1) 0px, transparent 50%),
+			radial-gradient(at 10% 60%, rgba(232, 101, 10, 0.08) 0px, transparent 50%);
+		background-size: 200% 200%;
+		animation: meshMove 20s ease infinite;
+		pointer-events: none;
+		opacity: 0.6;
+	}
+
+	@keyframes meshMove {
+		0%, 100% {
+			background-position: 0% 0%, 100% 100%, 50% 100%, 100% 0%, 0% 50%;
+		}
+		25% {
+			background-position: 100% 0%, 0% 100%, 25% 75%, 75% 25%, 50% 0%;
+		}
+		50% {
+			background-position: 100% 100%, 0% 0%, 75% 25%, 25% 75%, 100% 50%;
+		}
+		75% {
+			background-position: 0% 100%, 100% 0%, 50% 50%, 50% 50%, 0% 100%;
+		}
 	}
 </style>

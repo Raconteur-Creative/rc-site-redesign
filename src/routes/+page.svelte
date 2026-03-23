@@ -672,86 +672,39 @@
 		width: 100%;
 		height: 100%;
 		background: 
-			radial-gradient(circle 400px at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 100%),
-			radial-gradient(circle 350px at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 100%),
-			radial-gradient(circle 300px at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 100%),
-			radial-gradient(circle 380px at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 100%),
-			radial-gradient(circle 320px at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 100%),
-			radial-gradient(circle 290px at 50% 40%, rgba(173, 200, 245, 0.15) 0px, transparent 100%),
-			radial-gradient(circle 330px at 70% 50%, rgba(232, 101, 10, 0.12) 0px, transparent 100%),
-			radial-gradient(circle 280px at 30% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 100%);
-		background-size: 100% 100%;
-		animation: spotlightDrift 25s ease-in-out infinite;
+			radial-gradient(circle 400px at var(--x1, 20%) var(--y1, 30%), rgba(173, 200, 245, 0.25), transparent),
+			radial-gradient(circle 350px at var(--x2, 80%) var(--y2, 70%), rgba(232, 101, 10, 0.2), transparent),
+			radial-gradient(circle 300px at var(--x3, 40%) var(--y3, 80%), rgba(255, 255, 255, 0.12), transparent),
+			radial-gradient(circle 380px at var(--x4, 90%) var(--y4, 20%), rgba(173, 200, 245, 0.18), transparent);
+		animation: meshMove 20s ease-in-out infinite;
 		pointer-events: none;
 		z-index: 1;
 	}
 
-	@keyframes spotlightDrift {
+	@keyframes meshMove {
 		0%, 100% {
-			background-position: 
-				20% 30%,
-				80% 70%,
-				40% 80%,
-				90% 20%,
-				10% 60%,
-				50% 40%,
-				70% 50%,
-				30% 20%;
+			--x1: 20%; --y1: 30%;
+			--x2: 80%; --y2: 70%;
+			--x3: 40%; --y3: 80%;
+			--x4: 90%; --y4: 20%;
 		}
-		16% {
-			background-position: 
-				35% 25%,
-				70% 75%,
-				30% 70%,
-				85% 30%,
-				15% 55%,
-				60% 35%,
-				65% 60%,
-				25% 30%;
-		}
-		33% {
-			background-position: 
-				50% 35%,
-				65% 65%,
-				45% 75%,
-				75% 25%,
-				20% 65%,
-				45% 50%,
-				75% 45%,
-				35% 25%;
+		25% {
+			--x1: 70%; --y1: 60%;
+			--x2: 30%; --y2: 20%;
+			--x3: 80%; --y3: 40%;
+			--x4: 10%; --y4: 70%;
 		}
 		50% {
-			background-position: 
-				60% 50%,
-				50% 80%,
-				35% 60%,
-				80% 40%,
-				25% 50%,
-				55% 60%,
-				60% 55%,
-				40% 35%;
+			--x1: 50%; --y1: 80%;
+			--x2: 60%; --y2: 30%;
+			--x3: 20%; --y3: 50%;
+			--x4: 85%; --y4: 65%;
 		}
-		66% {
-			background-position: 
-				45% 60%,
-				60% 60%,
-				50% 70%,
-				70% 35%,
-				15% 70%,
-				40% 45%,
-				80% 50%,
-				30% 40%;
-		}
-		83% {
-			background-position: 
-				30% 45%,
-				75% 65%,
-				35% 75%,
-				85% 25%,
-				10% 65%,
-				50% 35%,
-				70% 55%,
-				25% 25%;
+		75% {
+			--x1: 30%; --y1: 40%;
+			--x2: 75%; --y2: 75%;
+			--x3: 55%; --y3: 25%;
+			--x4: 15%; --y4: 85%;
 		}
 	}
 </style>

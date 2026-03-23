@@ -223,6 +223,15 @@
 	
 	<!-- Favicon -->
 	<link rel="icon" type="image/svg+xml" href="/raconteur-logo.svg" />
+	
+	<!-- Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-2804PGN7Q9"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-2804PGN7Q9');
+	</script>
 </svelte:head>
 
 <div class="fixed inset-0 noise-bg z-[100]"></div>

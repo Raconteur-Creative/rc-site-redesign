@@ -502,7 +502,12 @@
 	<!-- Testimonials -->
 	<section class="py-32 px-8 md:px-20 bg-surface relative overflow-hidden">
 		<div class="absolute top-1/2 left-0 -translate-y-1/2 w-full h-px bg-outline-variant/10"></div>
-		<div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-24">
+		<div class="max-w-7xl mx-auto relative z-10">
+			<div class="text-center mb-20">
+				<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Client Feedback</span>
+				<h2 class="font-headline text-5xl md:text-6xl text-on-surface">Trusted by leaders.</h2>
+			</div>
+			<div class="grid md:grid-cols-2 gap-24">
 			<div class="border-l-2 border-secondary pl-12 flex flex-col gap-8">
 				<p class="font-headline text-3xl md:text-4xl text-on-surface leading-tight">"Raconteur Creative has been the perfect creative partner. They work tirelessly to bring our vision to life, on time and on budget. Their ability to deliver technically sophisticated work without losing sight of our goals sets them apart."</p>
 				<div class="flex items-center gap-4">
@@ -527,6 +532,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</section>
 

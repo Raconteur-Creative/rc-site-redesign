@@ -119,7 +119,7 @@
 
 <svelte:head>
 	<title>Raconteur Creative | Technical Autocracy via AI</title>
-	<meta name="description" content="High-stakes communication engine powered by custom agentic workflows" />
+	<meta name="description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do." />
 </svelte:head>
 
 <div class="fixed inset-0 noise-bg z-[100]"></div>
@@ -155,7 +155,7 @@
 					</span>
 				</h1>
 				<p class="font-body text-xl md:text-2xl text-on-surface-variant max-w-xl mb-12 font-light leading-relaxed">
-					High-stakes communication engine powered by custom agentic workflows. We don't just tell stories; we automate influence.
+					We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do, so your people can focus on what matters most.
 				</p>
 				<div class="flex flex-wrap gap-4">
 					<button class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all">

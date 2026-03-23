@@ -554,24 +554,27 @@
 						</div>
 					</div>
 				</div>
-				<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary">
+				<form class="bg-surface-container-low p-10 md:p-16 space-y-8 border-l-4 border-secondary" action="https://api.web3forms.com/submit" method="POST">
+					<input type="hidden" name="access_key" value="bfe5ad13-a1eb-4db6-a4a1-e138d349ee6c" />
+					<input type="hidden" name="subject" value="New Contact Form Submission from Raconteur Creative" />
+					<input type="hidden" name="from_name" value="Raconteur Creative Website" />
 					<div class="grid md:grid-cols-2 gap-8">
 						<div class="flex flex-col gap-2">
 							<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Full Name</label>
-							<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="John Doe" type="text" />
+							<input name="name" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="John Doe" type="text" required />
 						</div>
 						<div class="flex flex-col gap-2">
 							<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Organization</label>
-							<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="Inc." type="text" />
+							<input name="organization" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="Inc." type="text" />
 						</div>
 					</div>
 					<div class="flex flex-col gap-2">
 						<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Email Address</label>
-						<input class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="john@example.com" type="email" />
+						<input name="email" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="john@example.com" type="email" required />
 					</div>
 					<div class="flex flex-col gap-2">
 						<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Project Description</label>
-						<textarea class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4"></textarea>
+						<textarea name="message" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4" required></textarea>
 					</div>
 					<button class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
 						Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>

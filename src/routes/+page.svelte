@@ -671,33 +671,68 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
-		background: 
-			radial-gradient(circle at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 25%),
-			radial-gradient(circle at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 25%),
-			radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 20%),
-			radial-gradient(circle at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 25%),
-			radial-gradient(circle at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 25%),
-			radial-gradient(circle at 50% 40%, rgba(173, 200, 245, 0.15) 0px, transparent 20%),
-			radial-gradient(circle at 70% 50%, rgba(232, 101, 10, 0.12) 0px, transparent 22%),
-			radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 18%);
-		background-size: 200% 200%;
-		animation: meshMove 20s ease infinite;
 		pointer-events: none;
 		z-index: 1;
 	}
+	
+	.mesh-gradient::before,
+	.mesh-gradient::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.mesh-gradient::before {
+		background: 
+			radial-gradient(circle at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 25%),
+			radial-gradient(circle at 70% 50%, rgba(232, 101, 10, 0.12) 0px, transparent 22%),
+			radial-gradient(circle at 50% 40%, rgba(173, 200, 245, 0.15) 0px, transparent 20%),
+			radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0px, transparent 18%);
+		animation: spotlight1 15s ease-in-out infinite;
+	}
+	
+	.mesh-gradient::after {
+		background: 
+			radial-gradient(circle at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 25%),
+			radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 20%),
+			radial-gradient(circle at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 25%),
+			radial-gradient(circle at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 25%);
+		animation: spotlight2 18s ease-in-out infinite;
+	}
 
-	@keyframes meshMove {
+	@keyframes spotlight1 {
 		0%, 100% {
-			background-position: 0% 0%, 100% 100%, 50% 100%, 100% 0%, 0% 50%, 30% 70%, 80% 30%, 60% 10%;
+			transform: translate(0, 0);
 		}
 		25% {
-			background-position: 100% 0%, 0% 100%, 25% 75%, 75% 25%, 50% 0%, 90% 40%, 20% 80%, 40% 60%;
+			transform: translate(30px, -20px);
 		}
 		50% {
-			background-position: 100% 100%, 0% 0%, 75% 25%, 25% 75%, 100% 50%, 10% 90%, 70% 20%, 50% 50%;
+			transform: translate(-25px, 35px);
 		}
 		75% {
-			background-position: 0% 100%, 100% 0%, 50% 50%, 50% 50%, 0% 100%, 60% 10%, 30% 70%, 80% 90%;
+			transform: translate(15px, -30px);
+		}
+	}
+	
+	@keyframes spotlight2 {
+		0%, 100% {
+			transform: translate(0, 0);
+		}
+		20% {
+			transform: translate(-40px, 25px);
+		}
+		40% {
+			transform: translate(35px, -15px);
+		}
+		60% {
+			transform: translate(-20px, -35px);
+		}
+		80% {
+			transform: translate(30px, 20px);
 		}
 	}
 </style>

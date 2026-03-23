@@ -15,11 +15,15 @@
 	let meshGradient;
 	let formSubmitted = false;
 	let formError = false;
+	let formLoading = false;
 	
 	async function handleSubmit(event) {
 		event.preventDefault();
 		const form = event.target;
 		const formData = new FormData(form);
+		
+		formLoading = true;
+		formError = false;
 		
 		try {
 			const response = await fetch('https://api.web3forms.com/submit', {
@@ -35,6 +39,8 @@
 			}
 		} catch (error) {
 			formError = true;
+		} finally {
+			formLoading = false;
 		}
 	}
 	
@@ -232,31 +238,60 @@
 		gtag('js', new Date());
 		gtag('config', 'G-2804PGN7Q9');
 	</script>
+	
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Raconteur Creative",
+			"url": "https://raconteurcreative.com",
+			"logo": "https://raconteurcreative.com/raconteur-logo.svg",
+			"description": "AI-powered advocacy and communication agency specializing in custom agentic workflows, intelligent stakeholder mapping, and automated communication systems.",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Washington",
+				"addressRegion": "DC",
+				"addressCountry": "US"
+			},
+			"email": "hello@raconteurcreative.com",
+			"sameAs": [
+				"https://twitter.com/raconteurtweets",
+				"https://www.linkedin.com/company/raconteur-creative/",
+				"https://www.facebook.com/raconteurcreative/"
+			],
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"contactType": "customer service",
+				"email": "hello@raconteurcreative.com"
+			}
+		}
+	</script>
 </svelte:head>
 
 <div class="fixed inset-0 noise-bg z-[100]"></div>
 
 <!-- Navigation -->
-<nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-none">
+<nav class="fixed top-0 w-full z-50 bg-[#121416]/60 backdrop-blur-xl border-none" role="navigation" aria-label="Main navigation">
 	<div class="flex justify-between items-center w-full px-8 py-6 max-w-full mx-auto">
 		<div class="flex items-center">
-			<a href="/">
-				<img alt="Raconteur Logo" class="h-10 w-auto" src="/raconteur-logo.svg" />
+			<a href="/" aria-label="Raconteur Creative Home">
+				<img alt="Raconteur Creative Logo" class="h-10 w-auto" src="/raconteur-logo.svg" />
 			</a>
 		</div>
 		<div class="hidden md:flex items-center gap-10">
 			<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#services">Services</a>
 			<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#agents">AI Agents</a>
 			<a class="text-primary font-medium hover:text-secondary transition-colors font-label text-xs uppercase tracking-widest" href="#faq">FAQs</a>
-			<a class="bg-secondary text-on-secondary px-6 py-2 font-bold hover:opacity-90 transition-all text-xs uppercase tracking-tighter flex items-center gap-2" href="#contact">Contact <span class="material-symbols-outlined text-[14px] pulse-icon">bolt</span></a>
+			<a class="bg-secondary text-on-secondary px-6 py-2 font-bold hover:opacity-90 transition-all text-xs uppercase tracking-tighter flex items-center gap-2" href="#contact">Contact <span class="material-symbols-outlined text-[14px] pulse-icon" aria-hidden="true">bolt</span></a>
 		</div>
-		<button class="md:hidden text-primary">
-			<span class="material-symbols-outlined">menu</span>
+		<button class="md:hidden text-primary" aria-label="Open menu">
+			<span class="material-symbols-outlined" aria-hidden="true">menu</span>
 		</button>
 	</div>
 </nav>
 
-<main>
+<main role="main">
 	<!-- Hero Section -->
 	<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
 		<div class="mesh-gradient" bind:this={meshGradient}></div>
@@ -648,8 +683,13 @@
 							<p class="text-sm">Please email us directly at hello@raconteurcreative.com</p>
 						</div>
 					{:else}
-						<button type="submit" class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4">
-							Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
+						<button type="submit" disabled={formLoading} class="w-full bg-secondary text-on-secondary py-6 font-extrabold text-xl uppercase tracking-tighter hover:opacity-95 transition-opacity flex items-center justify-center gap-4 disabled:opacity-50 disabled:cursor-not-allowed">
+							{#if formLoading}
+								<span class="material-symbols-outlined animate-spin">progress_activity</span>
+								Sending...
+							{:else}
+								Submit Inquiry <span class="material-symbols-outlined pulse-icon">send</span>
+							{/if}
 						</button>
 					{/if}
 				</form>
@@ -669,6 +709,7 @@
 			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="https://twitter.com/raconteurtweets" target="_blank" rel="noopener noreferrer">X / Twitter</a>
 			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="https://www.facebook.com/raconteurcreative/" target="_blank" rel="noopener noreferrer">Facebook</a>
 			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="#faq">FAQs</a>
+			<a class="font-inter text-[10px] uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors" href="/privacy">Privacy</a>
 		</div>
 	</div>
 </footer>

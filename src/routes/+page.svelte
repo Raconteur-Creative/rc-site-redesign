@@ -422,6 +422,62 @@
 					</summary>
 					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Standard digital projects move in 6-8 week sprints. Custom agentic architectures typically require a 12-week runway from initial discovery to live production management.</p>
 				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						How is this different from just using ChatGPT?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Off-the-shelf AI tools are general-purpose. Our agents are purpose-built for your organization, trained on your issues, connected to your data sources, and designed around your specific workflows. The difference is a Swiss Army knife versus a scalpel.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						What does it cost to deploy an AI agent?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Every engagement is scoped individually, but most agent deployments start in the range of [X]. We also offer ongoing management retainers for organizations that want continuous optimization without an in-house technical team.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						Is our data safe?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Yes. We design agent architectures with data minimization principles built in. Your contacts, content, and organizational intelligence stay within systems you control. We never use client data to train shared models.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						Do we need to overhaul our existing tech stack?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Not typically. We build agents that connect to the tools you already use, including Airtable, Google Workspace, your CRM, and your website, rather than requiring a full platform migration.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						What does ongoing management look like after launch?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">We offer retainer-based management that includes prompt tuning, performance monitoring, drift alerts, and iterative improvements as your needs evolve. You're never handed a finished product and left alone with it.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						How does AI factor into your design and communications work?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Every service we offer is AI-enhanced, and we've developed deep expertise in how these tools perform at their limits. That translates to faster work, sharper output, and capabilities a traditional agency can't match at any price point. You get the benefit of that expertise without having to build it in-house.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						Do your non-agent services still make sense if we're not ready for AI?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Absolutely. Our web design, advocacy communications, and graphic design work stands on its own. And because we know these tools at a deeper level than most, even our traditional deliverables carry an edge your competitors won't have. Many clients start there and layer in agentic workflows as their comfort with AI grows.</p>
+				</details>
+				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
+					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
+						Can you handle a full rebrand and an agent deployment at the same time?
+						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+					</summary>
+					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Yes, and there's a natural efficiency to it. When we're already inside your brand, your messaging, and your tech stack, building agents on top of that foundation is faster and more coherent. It also means the agents we deploy are informed by the same expertise driving your creative work, not bolted on afterward by someone who doesn't know your organization.</p>
+				</details>
 			</div>
 		</div>
 	</section>

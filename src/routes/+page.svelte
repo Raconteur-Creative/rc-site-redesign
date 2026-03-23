@@ -597,8 +597,8 @@
 						<input name="email" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface" placeholder="john@example.com" type="email" required />
 					</div>
 					<div class="flex flex-col gap-2">
-						<label class="text-[10px] uppercase font-bold tracking-widest text-outline">Project Description</label>
-						<textarea name="message" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="How can AI solve your narrative challenges?" rows="4" required></textarea>
+						<label class="text-[10px] uppercase font-bold tracking-widest text-outline">How can we help?</label>
+						<textarea name="message" class="bg-transparent border-0 border-b border-outline-variant focus:ring-0 focus:border-secondary transition-colors py-4 text-on-surface resize-none" placeholder="What's the project, and what's standing in your way?" rows="4" required></textarea>
 					</div>
 					{#if formSubmitted}
 						<div class="w-full bg-primary/20 border border-primary/30 text-primary py-8 px-6 text-center">

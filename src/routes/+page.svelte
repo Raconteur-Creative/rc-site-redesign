@@ -311,7 +311,7 @@
 					<a href="#contact" class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all">
 						Start a project <span class="material-symbols-outlined pulse-icon">arrow_forward</span>
 					</a>
-					<a href="#agents" class="border border-outline-variant/30 text-primary px-10 py-5 text-lg font-bold hover:bg-primary/10 transition-colors">
+					<a href="#agents" class="bg-surface-container-high border border-outline-variant/30 text-primary px-10 py-5 text-lg font-bold hover:bg-primary/10 transition-colors">
 						See AI services
 					</a>
 				</div>

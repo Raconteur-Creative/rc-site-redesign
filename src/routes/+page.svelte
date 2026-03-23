@@ -158,12 +158,12 @@
 					We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do, so your people can focus on what matters most.
 				</p>
 				<div class="flex flex-wrap gap-4">
-					<button class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all">
+					<a href="#contact" class="bg-secondary text-on-secondary px-10 py-5 text-lg font-extrabold flex items-center gap-3 hover:gap-5 transition-all">
 						Start a project <span class="material-symbols-outlined pulse-icon">arrow_forward</span>
-					</button>
-					<button class="border border-outline-variant/30 text-primary px-10 py-5 text-lg font-bold hover:bg-primary/10 transition-colors">
+					</a>
+					<a href="#agents" class="border border-outline-variant/30 text-primary px-10 py-5 text-lg font-bold hover:bg-primary/10 transition-colors">
 						See AI services
-					</button>
+					</a>
 				</div>
 			</div>
 			<!-- Terminal Console -->

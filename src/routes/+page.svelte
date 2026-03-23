@@ -431,13 +431,6 @@
 				</details>
 				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
 					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
-						What does it cost to deploy an AI agent?
-						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-					</summary>
-					<p class="mt-6 text-on-surface-variant font-light leading-relaxed max-w-3xl">Every engagement is scoped individually, but most agent deployments start in the range of [X]. We also offer ongoing management retainers for organizations that want continuous optimization without an in-house technical team.</p>
-				</details>
-				<details class="group bg-surface p-8 cursor-pointer border border-transparent hover:border-outline-variant/30 transition-all">
-					<summary class="flex justify-between items-center font-bold text-lg text-on-surface list-none">
 						Is our data safe?
 						<span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
 					</summary>

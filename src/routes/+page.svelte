@@ -146,8 +146,8 @@
 	<!-- Hero Section -->
 	<section class="min-h-screen flex flex-col justify-center pt-24 px-8 md:px-20 relative overflow-hidden bg-surface">
 		<div class="mesh-gradient"></div>
-		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent"></div>
-		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center">
+		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent z-0"></div>
+		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
 			<div class="md:col-span-7 z-10">
 				<h1 class="font-headline text-6xl md:text-[8rem] leading-[0.85] tracking-tighter text-on-surface mb-8">
 					Intelligent<br/>
@@ -672,15 +672,15 @@
 		width: 100%;
 		height: 100%;
 		background: 
-			radial-gradient(at 20% 30%, rgba(173, 200, 245, 0.15) 0px, transparent 50%),
-			radial-gradient(at 80% 70%, rgba(232, 101, 10, 0.12) 0px, transparent 50%),
-			radial-gradient(at 40% 80%, rgba(255, 255, 255, 0.08) 0px, transparent 50%),
-			radial-gradient(at 90% 20%, rgba(173, 200, 245, 0.1) 0px, transparent 50%),
-			radial-gradient(at 10% 60%, rgba(232, 101, 10, 0.08) 0px, transparent 50%);
+			radial-gradient(at 20% 30%, rgba(173, 200, 245, 0.25) 0px, transparent 50%),
+			radial-gradient(at 80% 70%, rgba(232, 101, 10, 0.2) 0px, transparent 50%),
+			radial-gradient(at 40% 80%, rgba(255, 255, 255, 0.12) 0px, transparent 50%),
+			radial-gradient(at 90% 20%, rgba(173, 200, 245, 0.18) 0px, transparent 50%),
+			radial-gradient(at 10% 60%, rgba(232, 101, 10, 0.15) 0px, transparent 50%);
 		background-size: 200% 200%;
 		animation: meshMove 20s ease infinite;
 		pointer-events: none;
-		opacity: 0.6;
+		z-index: 1;
 	}
 
 	@keyframes meshMove {

@@ -298,7 +298,7 @@
 		<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-container/10 to-transparent z-0"></div>
 		<div class="max-w-7xl mx-auto w-full grid md:grid-cols-12 gap-12 items-center relative z-10">
 			<div class="md:col-span-7 z-10">
-				<h1 class="font-headline text-6xl md:text-[8rem] leading-[0.85] tracking-tighter text-on-surface mb-8">
+				<h1 class="font-headline text-5xl md:text-[8rem] leading-[0.85] tracking-tighter text-on-surface mb-8">
 					Intelligent<br/>
 					<span class="typing-container">
 						<span id="typing-text">{typingText}</span>

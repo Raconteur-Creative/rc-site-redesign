@@ -130,13 +130,13 @@
 				const nextIndex = (currentIndex + 1) % positions.length;
 				const current = positions[currentIndex];
 				const next = positions[nextIndex];
-				const duration = 5000;
+				const duration = 8000;
 				const startTime = Date.now();
 				
 				function updateGradient() {
 					const elapsed = Date.now() - startTime;
 					const progress = Math.min(elapsed / duration, 1);
-					const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+					const eased = 0.5 - Math.cos(progress * Math.PI) / 2;
 					
 					const x1 = current.x1 + (next.x1 - current.x1) * eased;
 					const y1 = current.y1 + (next.y1 - current.y1) * eased;
@@ -158,7 +158,7 @@
 						requestAnimationFrame(updateGradient);
 					} else {
 						currentIndex = nextIndex;
-						setTimeout(animateMesh, 1000);
+						setTimeout(animateMesh, 500);
 					}
 				}
 				

@@ -13,6 +13,38 @@
 	let progressValue = 0;
 	let currentYear = new Date().getFullYear();
 	
+	// Terminal typing animation
+	let terminalLines = [];
+	const terminalContent = [
+		{ text: '> Initializing contact_intelligence...', class: 'text-primary mb-2 opacity-80', delay: 0 },
+		{ text: '> Protocol: STAKEHOLDER_MAPPING_ALPHA', class: 'text-secondary mb-2', delay: 800 },
+		{ text: '... Enriching contact database (247 records)', class: 'text-on-surface-variant mb-1', delay: 1600 },
+		{ text: '... Matching legislators to priority issues', class: 'text-on-surface-variant mb-1', delay: 2400 },
+		{ text: '... Flagging 14 high-value targets [READY]', class: 'text-primary mb-1', delay: 3200 },
+		{ text: '... Drafting personalized outreach queue', class: 'text-on-surface-variant mb-4', delay: 4000 },
+		{ text: '> Awaiting deployment', class: 'text-on-surface flex items-center', delay: 4800, cursor: true }
+	];
+	
+	function typeTerminalLine(lineIndex) {
+		if (lineIndex >= terminalContent.length) return;
+		
+		const line = terminalContent[lineIndex];
+		let charIndex = 0;
+		
+		const typeChar = () => {
+			if (charIndex <= line.text.length) {
+				terminalLines[lineIndex] = line.text.substring(0, charIndex);
+				charIndex++;
+				setTimeout(typeChar, 30);
+			} else {
+				// Move to next line after a delay
+				setTimeout(() => typeTerminalLine(lineIndex + 1), 200);
+			}
+		};
+		
+		setTimeout(typeChar, line.delay);
+	}
+	
 	function type() {
 		const currentWord = words[wordIndex];
 		
@@ -57,6 +89,7 @@
 	
 	onMount(() => {
 		type();
+		typeTerminalLine(0);
 		
 		// Load robot Lottie animation
 		if (roboContainer) {
@@ -145,15 +178,13 @@
 						<span class="text-[10px] font-label text-outline uppercase tracking-widest ml-4">agent_node_v4.0.1</span>
 					</div>
 					<div class="p-6 font-mono text-sm leading-relaxed min-h-[320px] bg-black/40">
-						<div class="text-primary mb-2 opacity-80">&gt; Initializing contact_intelligence...</div>
-						<div class="text-secondary mb-2">&gt; Protocol: STAKEHOLDER_MAPPING_ALPHA</div>
-						<div class="text-on-surface-variant mb-1">... Enriching contact database (247 records)</div>
-						<div class="text-on-surface-variant mb-1">... Matching legislators to priority issues</div>
-						<div class="text-primary mb-1">... Flagging 14 high-value targets [READY]</div>
-						<div class="text-on-surface-variant mb-4">... Drafting personalized outreach queue</div>
-						<div class="text-on-surface flex items-center">
-							<span class="mr-2">&gt;</span> Awaiting deployment<span class="terminal-cursor"></span>
-						</div>
+						{#each terminalContent as line, i}
+							{#if terminalLines[i] !== undefined}
+								<div class={line.class}>
+									{terminalLines[i]}{#if i === terminalContent.length - 1 && terminalLines[i] === line.text}<span class="terminal-cursor"></span>{/if}
+								</div>
+							{/if}
+						{/each}
 					</div>
 				</div>
 				<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 -z-10"></div>

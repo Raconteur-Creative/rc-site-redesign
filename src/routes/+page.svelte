@@ -243,7 +243,6 @@
 						{/each}
 					</div>
 				</div>
-				<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 -z-10"></div>
 			</div>
 		</div>
 	</section>

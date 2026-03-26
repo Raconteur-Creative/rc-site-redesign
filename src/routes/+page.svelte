@@ -202,7 +202,7 @@
 
 <svelte:head>
 	<title>Raconteur Creative | Intelligent Advocacy & AI-Powered Communication</title>
-	<meta name="description" content="We put the most advanced AI tools to work for your mission. Custom-built agents that amplify what your team can do, so your people can focus on what matters most." />
+	<meta name="description" content="Custom OpenClaw agent development and AI-powered communication systems for organizations in Washington, DC and Northern Virginia. Purpose-built agents for advocacy, web design, and strategic communications." />
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
@@ -239,7 +239,7 @@
 		gtag('config', 'G-2804PGN7Q9');
 	</script>
 	
-	<!-- Structured Data -->
+	<!-- Structured Data: Organization -->
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -265,6 +265,69 @@
 				"contactType": "customer service",
 				"email": "hello@raconteurcreative.com"
 			}
+		}
+	</script>
+	
+	<!-- Structured Data: Professional Service -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": "Raconteur Creative",
+			"description": "We build OpenClaw agents and AI-powered communication systems for organizations in Washington, DC and Northern Virginia",
+			"url": "https://raconteurcreative.com",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Washington",
+				"addressRegion": "DC"
+			},
+			"areaServed": [
+				{
+					"@type": "City",
+					"name": "Washington, DC"
+				},
+				{
+					"@type": "AdministrativeArea",
+					"name": "Northern Virginia"
+				}
+			],
+			"serviceType": [
+				"OpenClaw Agent Development",
+				"AI Agent Design and Deployment",
+				"Custom AI Communication Systems",
+				"Advocacy Communications",
+				"Web Design and Development"
+			],
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "AI Agent Services",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "OpenClaw Agent Development",
+							"description": "Custom-built OpenClaw agents designed for advocacy and organizational communication workflows"
+						}
+					}
+				]
+			}
+		}
+	</script>
+	
+	<!-- Structured Data: FAQ -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": [{
+				"@type": "Question",
+				"name": "What is OpenClaw?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "OpenClaw is our proprietary internal framework for orchestrating multi-agent systems. We use it to build specialized intelligence nodes for organizations in Washington, DC and Northern Virginia. It allows us to build specialized intelligence nodes that work together without the hallucination risks typical of standard LLM deployments."
+				}
+			}]
 		}
 	</script>
 </svelte:head>
@@ -457,6 +520,7 @@
 				<div class="mb-8 w-40 h-40" bind:this={spacecraftContainer}></div>
 				<span class="font-label text-xs uppercase tracking-[0.4em] text-secondary mb-4 block">Specialized Capability</span>
 				<h2 class="font-headline text-5xl md:text-7xl leading-tight text-on-surface">AI Agent Design, Deployment, &amp; Management</h2>
+				<p class="text-on-surface-variant font-light text-lg mt-6 max-w-2xl">We build OpenClaw agents for organizations in Washington, DC and Northern Virginia. Our agents are purpose-built intelligence systems designed for advocacy communications, legislative tracking, and organizational workflows.</p>
 			</div>
 			<div class="grid md:grid-cols-3 gap-px bg-outline-variant/20 border border-outline-variant/20">
 				<!-- Agent Architecture -->

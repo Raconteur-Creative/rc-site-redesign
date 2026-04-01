@@ -49,19 +49,22 @@
 		formError = false;
 		
 		try {
-			// Using Web3Forms (you'll need to add access key)
 			const response = await fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
 				body: formData
 			});
 			
-			if (response.ok) {
+			const result = await response.json();
+			
+			if (response.ok && result.success) {
 				formSubmitted = true;
 				form.reset();
 			} else {
+				console.error('Web3Forms error:', result);
 				formError = true;
 			}
 		} catch (error) {
+			console.error('Submit error:', error);
 			formError = true;
 		} finally {
 			formLoading = false;

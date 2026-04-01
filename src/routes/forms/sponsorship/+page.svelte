@@ -273,22 +273,12 @@
 					</select>
 				</div>
 
-				<!-- Attachments -->
-				<div>
-					<label for="attachments" class="block text-on-surface font-bold mb-2">
-						Attachments
-					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
-						Provide materials like ad specs, design guidelines, etc. (File size limit 4MB). 
-						Larger files may be emailed to <a href="mailto:patrick@raconteurcreative.com" class="text-secondary underline hover:opacity-80">patrick@raconteurcreative.com</a>
+				<!-- Attachments Note -->
+				<div class="bg-surface-container-low border-l-4 border-secondary p-4">
+					<p class="text-on-surface font-bold mb-2">Attachments</p>
+					<p class="text-on-surface-variant text-sm">
+						Please email any materials (ad specs, design guidelines, etc.) to <a href="mailto:patrick@raconteurcreative.com" class="text-secondary underline hover:opacity-80 font-bold">patrick@raconteurcreative.com</a> and reference your sponsorship name in the subject line.
 					</p>
-					<input
-						type="file"
-						id="attachments"
-						name="attachments"
-						multiple
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-secondary file:text-on-secondary file:font-bold hover:file:opacity-90 focus:outline-none focus:border-secondary"
-					/>
 				</div>
 
 				<!-- Organization -->

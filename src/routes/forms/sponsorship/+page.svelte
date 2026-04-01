@@ -117,6 +117,7 @@
 				<input type="hidden" name="access_key" value="56da9fd5-4a0b-40e5-97ac-d6b83f1f5f3d" />
 				<input type="hidden" name="subject" value="Sponsorship Artwork Request" />
 				<input type="hidden" name="from_name" value="Sponsorship Form" />
+				<input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
 
 				<!-- Event/Sponsorship Name -->
 				<div>

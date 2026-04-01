@@ -49,6 +49,21 @@
 		formError = false;
 		
 		try {
+			// Handle file uploads - convert to base64
+			const fileInput = form.querySelector('input[type="file"]');
+			if (fileInput && fileInput.files.length > 0) {
+				// Remove the file input from formData
+				formData.delete('attachments');
+				
+				// Convert files to base64 and add as separate fields
+				for (let i = 0; i < fileInput.files.length; i++) {
+					const file = fileInput.files[i];
+					const base64 = await toBase64(file);
+					formData.append(`attachment_${i + 1}`, base64);
+					formData.append(`attachment_${i + 1}_name`, file.name);
+				}
+			}
+			
 			const response = await fetch('https://api.web3forms.com/submit', {
 				method: 'POST',
 				body: formData
@@ -69,6 +84,15 @@
 		} finally {
 			formLoading = false;
 		}
+	}
+
+	function toBase64(file) {
+		return new Promise((resolve, reject) => {
+			const reader = new FileReader();
+			reader.readAsDataURL(file);
+			reader.onload = () => resolve(reader.result);
+			reader.onerror = error => reject(error);
+		});
 	}
 </script>
 

@@ -78,7 +78,7 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<div class="min-h-screen bg-surface py-12 px-8">
+<div class="min-h-screen bg-white py-12 px-8">
 	<!-- Header -->
 	<header class="max-w-3xl mx-auto mb-8">
 		<a href="/" class="inline-block mb-6 hover:opacity-80 transition-opacity">
@@ -87,13 +87,13 @@
 	</header>
 
 	<!-- Form Container -->
-	<div class="max-w-3xl mx-auto bg-surface-container p-8 md:p-12 border border-outline-variant/20">
-		<h1 class="font-headline text-4xl md:text-5xl text-on-surface mb-4">Sponsorship Artwork Request</h1>
+	<div class="max-w-3xl mx-auto bg-white p-8 md:p-12 border border-gray-200 shadow-sm">
+		<h1 class="font-headline text-4xl md:text-5xl text-gray-900 mb-4">Sponsorship Artwork Request</h1>
 		
 		{#if formSubmitted}
 			<div class="py-12 text-center">
-				<p class="text-on-surface text-xl mb-4">Thank you for your submission!</p>
-				<p class="text-on-surface-variant mb-8">We'll be in touch soon.</p>
+				<p class="text-gray-900 text-xl mb-4">Thank you for your submission!</p>
+				<p class="text-gray-600 mb-8">We'll be in touch soon.</p>
 				<button 
 					on:click={() => goto('/')}
 					class="bg-secondary text-on-secondary px-6 py-3 font-bold hover:opacity-90 transition-all text-sm uppercase tracking-wider"
@@ -102,12 +102,12 @@
 				</button>
 			</div>
 		{:else}
-			<p class="text-on-surface-variant mb-8">
+			<p class="text-gray-600 mb-8">
 				Please complete this form to request creative assets for sponsorships APPROVED BY the Amazon Community Engagement team.
 			</p>
 
 			{#if formError}
-				<div class="bg-error/10 border border-error text-error px-4 py-3 mb-6">
+				<div class="bg-red-50 border border-red-300 text-red-700 px-4 py-3 mb-6">
 					Error submitting form. Please try again.
 				</div>
 			{/if}
@@ -121,10 +121,10 @@
 
 				<!-- Event/Sponsorship Name -->
 				<div>
-					<label for="sponsorship" class="block text-on-surface font-bold mb-2">
-						Event / Sponsorship Name <span class="text-error">*</span>
+					<label for="sponsorship" class="block text-gray-900 font-bold mb-2">
+						Event / Sponsorship Name <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Please provide the name of the sponsorship or sponsored event.
 					</p>
 					<input
@@ -132,16 +132,16 @@
 						id="sponsorship"
 						name="sponsorship"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Name -->
 				<div>
-					<label for="name" class="block text-on-surface font-bold mb-2">
-						Amazonian submitting this form <span class="text-error">*</span>
+					<label for="name" class="block text-gray-900 font-bold mb-2">
+						Amazonian submitting this form <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						First and last name of the Amazon employee
 					</p>
 					<input
@@ -149,16 +149,16 @@
 						id="name"
 						name="name"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Email -->
 				<div>
-					<label for="email" class="block text-on-surface font-bold mb-2">
-						Contact Email <span class="text-error">*</span>
+					<label for="email" class="block text-gray-900 font-bold mb-2">
+						Contact Email <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Please list your Amazon email address (example: stephanie@amazon.com)
 					</p>
 					<input
@@ -166,16 +166,16 @@
 						id="email"
 						name="email"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Ad Type -->
 				<div>
-					<label for="adtypes" class="block text-on-surface font-bold mb-2">
-						Ad Type <span class="text-error">*</span>
+					<label for="adtypes" class="block text-gray-900 font-bold mb-2">
+						Ad Type <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Select the artwork you're requesting (you may select multiple). If unsure, check:
 						<a href="https://bit.ly/Amazon-Spec-Guide" target="_blank" rel="noreferrer" class="text-secondary underline hover:opacity-80">
 							https://bit.ly/Amazon-Spec-Guide
@@ -187,25 +187,25 @@
 						multiple
 						required
 						size="8"
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					>
 						{#each adType as type}
 							<option value={type}>{type}</option>
 						{/each}
 					</select>
-					<p class="text-on-surface-variant text-xs mt-1">Hold Ctrl (Windows) or Cmd (Mac) to select multiple</p>
+					<p class="text-gray-600 text-xs mt-1">Hold Ctrl (Windows) or Cmd (Mac) to select multiple</p>
 				</div>
 
 				<!-- Digital or Print -->
 				<div>
-					<label for="type" class="block text-on-surface font-bold mb-2">
-						Digital or Print? <span class="text-error">*</span>
+					<label for="type" class="block text-gray-900 font-bold mb-2">
+						Digital or Print? <span class="text-red-700">*</span>
 					</label>
 					<select
 						id="type"
 						name="type"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					>
 						<option value="" disabled selected>Select your answer</option>
 						<option value="Digital">Digital</option>
@@ -216,10 +216,10 @@
 
 				<!-- Design Specs -->
 				<div>
-					<label for="specs" class="block text-on-surface font-bold mb-2">
-						Design Specs <span class="text-error">*</span>
+					<label for="specs" class="block text-gray-900 font-bold mb-2">
+						Design Specs <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Provide design specifications from the organization. Ex: 5.5"x8.5" full page program ad, .25" bleed, full color; Horizontal/Vertical, etc.
 					</p>
 					<textarea
@@ -227,20 +227,20 @@
 						name="specs"
 						required
 						rows="4"
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					></textarea>
 				</div>
 
 				<!-- File Type -->
 				<div>
-					<label for="file" class="block text-on-surface font-bold mb-2">
-						Which file type do you need? <span class="text-error">*</span>
+					<label for="file" class="block text-gray-900 font-bold mb-2">
+						Which file type do you need? <span class="text-red-700">*</span>
 					</label>
 					<select
 						id="file"
 						name="file"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					>
 						<option value="" disabled selected>Select your answer</option>
 						<option value="JPEG">JPEG</option>
@@ -251,10 +251,10 @@
 
 				<!-- Attachments -->
 				<div>
-					<label for="attachments" class="block text-on-surface font-bold mb-2">
+					<label for="attachments" class="block text-gray-900 font-bold mb-2">
 						Attachments
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Provide materials like ad specs, design guidelines, etc. (Max 10MB per file)
 					</p>
 					<input
@@ -262,16 +262,16 @@
 						id="attachments"
 						name="attachments"
 						multiple
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-secondary file:text-on-secondary file:font-bold hover:file:opacity-90 focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-secondary file:text-on-secondary file:font-bold hover:file:opacity-90 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Organization -->
 				<div>
-					<label for="organization" class="block text-on-surface font-bold mb-2">
-						Sponsored Organization <span class="text-error">*</span>
+					<label for="organization" class="block text-gray-900 font-bold mb-2">
+						Sponsored Organization <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Name of organization receiving the sponsorship
 					</p>
 					<input
@@ -279,16 +279,16 @@
 						id="organization"
 						name="organization"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- City -->
 				<div>
-					<label for="city" class="block text-on-surface font-bold mb-2">
-						City Name <span class="text-error">*</span>
+					<label for="city" class="block text-gray-900 font-bold mb-2">
+						City Name <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Name of the city receiving the sponsorship
 					</p>
 					<input
@@ -296,32 +296,32 @@
 						id="city"
 						name="city"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Website -->
 				<div>
-					<label for="website" class="block text-on-surface font-bold mb-2">
+					<label for="website" class="block text-gray-900 font-bold mb-2">
 						Organization Website
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Website of the organization receiving the sponsorship
 					</p>
 					<input
 						type="url"
 						id="website"
 						name="website"
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Deadline -->
 				<div>
-					<label for="deadline" class="block text-on-surface font-bold mb-2">
-						Submission Deadline <span class="text-error">*</span>
+					<label for="deadline" class="block text-gray-900 font-bold mb-2">
+						Submission Deadline <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Provide the organization's deadline to submit artwork and creative materials
 					</p>
 					<input
@@ -329,23 +329,23 @@
 						id="deadline"
 						name="deadline"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					/>
 				</div>
 
 				<!-- Pillar -->
 				<div>
-					<label for="pillar" class="block text-on-surface font-bold mb-2">
-						Program Pillar <span class="text-error">*</span>
+					<label for="pillar" class="block text-gray-900 font-bold mb-2">
+						Program Pillar <span class="text-red-700">*</span>
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Select the pillar category supported by the organization/event. The pillar selected corresponds to the artwork provided.
 					</p>
 					<select
 						id="pillar"
 						name="pillar"
 						required
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					>
 						<option value="" disabled selected>Select your answer</option>
 						{#each pillar as type}
@@ -356,17 +356,17 @@
 
 				<!-- Notes -->
 				<div>
-					<label for="notes" class="block text-on-surface font-bold mb-2">
+					<label for="notes" class="block text-gray-900 font-bold mb-2">
 						Notes / Considerations
 					</label>
-					<p class="text-on-surface-variant text-sm mb-2">
+					<p class="text-gray-600 text-sm mb-2">
 						Provide any additional notes the creative team should consider (ad sizes, design notes, etc.)
 					</p>
 					<textarea
 						id="notes"
 						name="notes"
 						rows="4"
-						class="w-full bg-surface border border-outline-variant/30 px-4 py-3 text-on-surface focus:outline-none focus:border-secondary"
+						class="w-full bg-white border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:border-secondary"
 					></textarea>
 				</div>
 

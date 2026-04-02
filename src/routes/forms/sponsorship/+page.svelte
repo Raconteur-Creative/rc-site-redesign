@@ -78,7 +78,7 @@
 	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
-<div class="min-h-screen bg-white py-12 px-8">
+<div class="min-h-screen bg-[#121416] py-12 px-8">
 	<!-- Header -->
 	<header class="max-w-3xl mx-auto mb-8">
 		<a href="/" class="inline-block mb-6 hover:opacity-80 transition-opacity">
